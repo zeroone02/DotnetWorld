@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33627.172
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{8A14EAEB-0F93-47FE-B15F-7AE180F08766}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotnetWorld.ProductService.Application", "src\DotnetWorld.ProductService.Application\DotnetWorld.ProductService.Application.csproj", "{5295DBE9-493F-4FEB-A478-3ADDEBECE043}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotnetWorld.ProductService.Application.Contracts", "src\DotnetWorld.ProductService.Application.Contracts\DotnetWorld.ProductService.Application.Contracts.csproj", "{2CA75687-EC70-4CA6-954E-BDFEDCBB6818}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotnetWorld.ProductService.EntityFrameworkCore", "src\DotnetWorld.ProductService.EntityFrameworkCore\DotnetWorld.ProductService.EntityFrameworkCore.csproj", "{11DE87BC-83CA-4AF7-BA9F-EE00F3806CAE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotnetWorld.ProductService.HttpApi.Host", "src\DotnetWorld.ProductService.HttpApi.Host\DotnetWorld.ProductService.HttpApi.Host.csproj", "{B9DD887A-01E2-455A-BF61-41C0E171836A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotnetWorld.ProductService.Domain", "src\DotnetWorld.ProductService.Domain\DotnetWorld.ProductService.Domain.csproj", "{D2473A9E-BCE2-493A-9768-2DC3ADE31308}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5295DBE9-493F-4FEB-A478-3ADDEBECE043}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5295DBE9-493F-4FEB-A478-3ADDEBECE043}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5295DBE9-493F-4FEB-A478-3ADDEBECE043}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5295DBE9-493F-4FEB-A478-3ADDEBECE043}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CA75687-EC70-4CA6-954E-BDFEDCBB6818}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CA75687-EC70-4CA6-954E-BDFEDCBB6818}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CA75687-EC70-4CA6-954E-BDFEDCBB6818}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CA75687-EC70-4CA6-954E-BDFEDCBB6818}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11DE87BC-83CA-4AF7-BA9F-EE00F3806CAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11DE87BC-83CA-4AF7-BA9F-EE00F3806CAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11DE87BC-83CA-4AF7-BA9F-EE00F3806CAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11DE87BC-83CA-4AF7-BA9F-EE00F3806CAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9DD887A-01E2-455A-BF61-41C0E171836A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9DD887A-01E2-455A-BF61-41C0E171836A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9DD887A-01E2-455A-BF61-41C0E171836A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9DD887A-01E2-455A-BF61-41C0E171836A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2473A9E-BCE2-493A-9768-2DC3ADE31308}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2473A9E-BCE2-493A-9768-2DC3ADE31308}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2473A9E-BCE2-493A-9768-2DC3ADE31308}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2473A9E-BCE2-493A-9768-2DC3ADE31308}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5295DBE9-493F-4FEB-A478-3ADDEBECE043} = {8A14EAEB-0F93-47FE-B15F-7AE180F08766}
+		{2CA75687-EC70-4CA6-954E-BDFEDCBB6818} = {8A14EAEB-0F93-47FE-B15F-7AE180F08766}
+		{11DE87BC-83CA-4AF7-BA9F-EE00F3806CAE} = {8A14EAEB-0F93-47FE-B15F-7AE180F08766}
+		{B9DD887A-01E2-455A-BF61-41C0E171836A} = {8A14EAEB-0F93-47FE-B15F-7AE180F08766}
+		{D2473A9E-BCE2-493A-9768-2DC3ADE31308} = {8A14EAEB-0F93-47FE-B15F-7AE180F08766}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BB24F4E8-659D-4644-A894-6051D7A9661E}
+	EndGlobalSection
+EndGlobal
