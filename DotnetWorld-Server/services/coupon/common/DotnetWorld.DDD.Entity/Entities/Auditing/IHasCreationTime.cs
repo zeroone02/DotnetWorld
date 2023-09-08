@@ -1,4 +1,4 @@
-﻿namespace DotnetWorld.DDD.Entities.Audited;
+﻿namespace DotnetWorld.DDD;
 public interface IHasCreationTime
 {
     DateTime CreationTime { get; set; }

@@ -1,4 +1,4 @@
-﻿namespace DotnetWorld.DDD.Exceptions;
+﻿namespace DotnetWorld.DDD;
 public class EntityNotFoundException : Exception
 {
     public EntityNotFoundException(string message)

@@ -1,4 +1,4 @@
-﻿namespace DotnetWorld.DDD.Entities;
+﻿namespace DotnetWorld.DDD;
 
 public abstract class AggregateRoot<TKey> : Entity<TKey>
 {
