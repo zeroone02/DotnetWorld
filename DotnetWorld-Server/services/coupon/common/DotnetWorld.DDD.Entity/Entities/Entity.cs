@@ -1,4 +1,4 @@
-﻿namespace DotnetWorld.DDD.Entities;
+﻿namespace DotnetWorld.DDD;
 public abstract class Entity<T> : IEntity<T>
 {
     public Entity() { }

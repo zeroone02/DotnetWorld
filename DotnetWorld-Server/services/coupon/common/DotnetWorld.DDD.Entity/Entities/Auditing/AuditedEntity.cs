@@ -1,6 +1,4 @@
-﻿using DotnetWorld.DDD.Entities.Audited;
-
-namespace DotnetWorld.DDD.Entities.Auditing;
+﻿namespace DotnetWorld.DDD.Entities.Auditing;
 public abstract class AuditedEntity<TKey, TCreatorKey> : 
     Entity<TKey>,
     IHasCreationTime,

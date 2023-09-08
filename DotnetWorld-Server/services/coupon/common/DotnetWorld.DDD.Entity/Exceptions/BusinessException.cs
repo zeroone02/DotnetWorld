@@ -1,4 +1,4 @@
-﻿namespace DotnetWorld.DDD.Exceptions;
+﻿namespace DotnetWorld.DDD;
 public class BusinessException : Exception
 {
 	public BusinessException(string message)

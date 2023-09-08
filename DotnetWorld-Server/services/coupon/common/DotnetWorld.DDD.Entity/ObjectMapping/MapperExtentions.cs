@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using System.Linq.Expressions;
 
-namespace DotnetWorld.DDD.ObjectMapping;
+namespace DotnetWorld.DDD;
 public static class MapperExtentions
 {
     public static IMappingExpression<TDestination, TMember> Ignore<TDestination, TMember, TResult>(
