@@ -23,7 +23,11 @@ public class Repository<TEntity, TKey> : IRepository<TEntity, TKey> where TEntit
         var entity = await _dbContext.Set<TEntity>().FindAsync(id);
         return entity;
     }
-
+    public IQueryable<TEntity> GetQueryable()
+    {
+        var dbSet = _dbContext.Set<TEntity>();
+        return dbSet;
+    }
     public async Task<List<TEntity>> GetListAsync(int skip, int take)
     {
         var list = await _dbContext.Set<TEntity>().Skip(skip).Take(take).ToListAsync();
