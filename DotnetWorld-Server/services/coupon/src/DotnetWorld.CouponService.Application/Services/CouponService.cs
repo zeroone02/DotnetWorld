@@ -3,6 +3,7 @@ using DotnetWorld.CouponService.Application.Contracts;
 using DotnetWorld.CouponService.Domain;
 using DotnetWorld.DDD;
 using DotnetWorld.DDD.Application.Contracts;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace DotnetWorld.CouponService.Application;
 public class CouponService :
@@ -19,31 +20,62 @@ public class CouponService :
 
     public async override Task<CouponDto> CreateAsync(CreateCouponDto input)
     {
-        throw new NotImplementedException();
+        Coupon coupon = ObjectMapper.Map<CreateCouponDto, Coupon>(input);
+        await _repository.InsertAsync(coupon);
+        await _unitOfWork.SaveChangesAsync();
+        return ObjectMapper.Map<Coupon, CouponDto>(coupon);
     }
 
     public async override Task DeleteAsync(Guid id)
     {
-        throw new NotImplementedException();
+        var coupon = await _repository.GetAsync(id);
+        await _repository.DeleteAsync(coupon);
+        await _unitOfWork.SaveChangesAsync();
     }
 
     public async override Task<CouponDto> GetAsync(Guid id)
     {
-        throw new NotImplementedException();
+        Coupon coupon = await _repository.GetAsync(id);
+        if (coupon == null)
+        {
+            throw new Exception($"Купон с id = {id} не найден");
+        }
+        return ObjectMapper.Map<Coupon, CouponDto>(coupon);
     }
 
     public async Task<CouponDto> GetByCodeAsync(string code)
     {
-        throw new NotImplementedException();
+
+        Coupon coupon = _repository.GetQueryable()
+            .FirstOrDefault(x => x.CouponCode == code);
+
+        if (coupon == null)
+        {
+            throw new Exception($"Купон с code = {code} не найден");
+        }
+        return ObjectMapper.Map<Coupon, CouponDto>(coupon);
     }
 
     public async override Task<PagedResultDto<CouponDto>> GetListAsync(PagedRequestDto input)
     {
-        throw new NotImplementedException();
+        List<Coupon> coupons = await _repository.GetListAsync(input.SkipCount,input.MaxResultCount);
+        if (coupons == null)
+        {
+            throw new Exception("Данные не найдены");
+        }
+        var result = ObjectMapper.Map<List<Coupon>, List<CouponDto>>(coupons);
+        return new PagedResultDto<CouponDto>
+        {
+            Items = result,
+        };
     }
 
     public async override Task<CouponDto> UpdateAsync(Guid id, UpdateCouponDto input)
     {
-        throw new NotImplementedException();
+        Coupon coupon = ObjectMapper.Map<UpdateCouponDto, Coupon>(input);
+        coupon.Id = id;
+        await _repository.UpdateAsync(coupon);
+        await _unitOfWork.SaveChangesAsync();
+        return ObjectMapper.Map<Coupon, CouponDto>(coupon);
     }
 }

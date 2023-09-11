@@ -1,6 +1,6 @@
 ﻿using DotnetWorld.CouponService.Application.Contracts;
-using DotnetWorld.DDD.Application.Contracts;
 using DotnetWorld.DDD;
+using DotnetWorld.DDD.Application.Contracts;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,32 +12,28 @@ public class CouponController : ControllerBase
 {
     private ICouponService _couponService;
     private UnitOfWork _unitOfWork;
-    private ResponseDto _response;
     public CouponController(ICouponService couponService, UnitOfWork unitOfWork)
     {
         _couponService = couponService;
         _unitOfWork = unitOfWork;
-        _response = new ResponseDto();
     }
+
     [HttpGet]
-    public async Task<ResponseDto> GetList(int skip, int take)
+    public async Task<ResponseDto<PagedResultDto<CouponDto>>> GetList(int skip, int take)
     {
         try
         {
-            var result  = await _couponService.GetListAsync(skip, take);
-            _response.Result = result;
-            
+            var result = await _couponService.GetListAsync(new PagedRequestDto { MaxResultCount = take, SkipCount = skip });
+            return ApiResponseBuilder.CreateApiResponse(result);
         }
-        catch (Exception ex)
+        catch
         {
-            _response.IsSuccess = false;
-            _response.Message = ex.Message;
+            return ApiResponseBuilder.CreateErrorApiResponse<PagedResultDto<CouponDto>>(1);
         }
-        return _response;
     }
+
     [HttpGet]
     [Route("GetByCode/{code}")]
-    
     public async Task<ResponseDto> GetByCode(string code)
     {
         try
