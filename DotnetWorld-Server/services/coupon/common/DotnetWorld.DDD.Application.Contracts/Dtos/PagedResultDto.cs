@@ -5,12 +5,10 @@ public class PagedResultDto<TEntity>
     {
 
     }
-    public PagedResultDto(IReadOnlyCollection<TEntity> items, long totalCount)
+    public PagedResultDto(IReadOnlyCollection<TEntity> items)
     {
         Items = items;
-        TotalCount = totalCount;
     }
 
     public IReadOnlyCollection<TEntity> Items { get; set; }
-    public long TotalCount { get; set; }
 }
