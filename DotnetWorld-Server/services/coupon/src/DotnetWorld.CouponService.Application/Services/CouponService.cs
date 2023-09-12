@@ -3,7 +3,6 @@ using DotnetWorld.CouponService.Application.Contracts;
 using DotnetWorld.CouponService.Domain;
 using DotnetWorld.DDD;
 using DotnetWorld.DDD.Application.Contracts;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace DotnetWorld.CouponService.Application;
 public class CouponService :

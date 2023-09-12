@@ -4,9 +4,9 @@ using DotnetWorld.CouponService.Domain;
 using DotnetWorld.DDD;
 
 namespace DotnetWorld.Application;
-public class SmartwayApplicationObjectMapper : Profile
+public class DotnetWorldApplicationObjectMapper : Profile
 {
-    public SmartwayApplicationObjectMapper()
+    public DotnetWorldApplicationObjectMapper()
     {
         MapCoupons();
     }
