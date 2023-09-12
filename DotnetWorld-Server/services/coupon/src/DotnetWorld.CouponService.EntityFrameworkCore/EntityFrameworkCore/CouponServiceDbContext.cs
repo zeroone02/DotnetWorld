@@ -2,7 +2,7 @@
 using DotnetWorld.DDD;
 using Microsoft.EntityFrameworkCore;
 
-namespace eShop.CouponService.EntityFrameworkCore;
+namespace DotnetWorld.CouponService.EntityFrameworkCore;
 public class CouponServiceDbContext : DbContext, IEfCoreDbContext
 {
    public CouponServiceDbContext(DbContextOptions<CouponServiceDbContext> options )
