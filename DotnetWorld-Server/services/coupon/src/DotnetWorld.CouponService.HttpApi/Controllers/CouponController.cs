@@ -1,9 +1,7 @@
 ﻿using DotnetWorld.CouponService.Application.Contracts;
 using DotnetWorld.DDD;
 using DotnetWorld.DDD.Application.Contracts;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System.Data;
 
 namespace DotnetWorld.CouponService.HttpApi;
 
@@ -18,8 +16,8 @@ public class CouponController : ControllerBase
         _couponService = couponService;
         _response = new ResponseDto();
     }
-    [HttpGet]
-    public async Task<ResponseDto> GetList(PagedRequestDto pagedRequestDto)
+    [HttpGet("list")]
+    public async Task<ResponseDto> GetList([FromQuery] PagedRequestDto pagedRequestDto)
     {
         try
         {
@@ -34,6 +32,7 @@ public class CouponController : ControllerBase
         return _response;
     }
     [HttpGet]
+    [Route("GetById/{id}")]
     public async Task<ResponseDto> GetById(Guid id)
     {
         try
@@ -49,6 +48,7 @@ public class CouponController : ControllerBase
         return _response;
     }
     [HttpGet]
+    [Route("GetByCode/{code}")]
     public async Task<ResponseDto> GetByCode(string code)
     {
         try
@@ -83,7 +83,7 @@ public class CouponController : ControllerBase
     {
         try
         {
-             await _couponService.DeleteAsync(id);
+            await _couponService.DeleteAsync(id);
         }
         catch (Exception ex)
         {
@@ -94,11 +94,11 @@ public class CouponController : ControllerBase
     }
 
     [HttpPut]
-    public async Task<ResponseDto> Update(Guid id,[FromBody] UpdateCouponDto couponDto)
+    public async Task<ResponseDto> Update(Guid id, [FromBody] UpdateCouponDto couponDto)
     {
         try
         {
-            var result = await _couponService.UpdateAsync(id,couponDto);
+            var result = await _couponService.UpdateAsync(id, couponDto);
             _response.Result = result;
         }
         catch (Exception ex)
