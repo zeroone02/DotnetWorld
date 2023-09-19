@@ -1,4 +1,4 @@
-﻿namespace DotnetWorld.DDD.Application;
+﻿namespace DotnetWorld.DDD.Application.Contracts;
 public abstract class EntityDto
 {
 }

@@ -1,6 +1,4 @@
-﻿using DotnetWorld.DDD.Entities.Extentions;
-
-namespace DotnetWorld.DDD.Entities;
+﻿namespace DotnetWorld.DDD;
 public interface IHasExtraProperty
 {
     ExtraPropertyDictionary ExtraProperties { get; }

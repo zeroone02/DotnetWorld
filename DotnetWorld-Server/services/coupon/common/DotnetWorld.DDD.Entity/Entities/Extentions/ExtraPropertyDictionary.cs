@@ -1,4 +1,4 @@
-﻿namespace DotnetWorld.DDD.Entities.Extentions;
+﻿namespace DotnetWorld.DDD;
 
 [Serializable]
 public class ExtraPropertyDictionary : Dictionary<string, object>
