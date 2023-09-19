@@ -1,7 +1,7 @@
 ﻿namespace DotnetWorld.DDD;
-public class ResponseDto
+public class ResponseDto<TResult>
 {
-    public object? Result { get; set; }
+    public TResult? Result { get; set; }
     public bool IsSuccess { get; set; } = true;
-    public string Message { get; set; } = "Без сообщений";
+    public string Message { get; set; } = "Нет сообщения";
 }
