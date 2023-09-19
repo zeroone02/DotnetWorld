@@ -10,103 +10,108 @@ namespace DotnetWorld.CouponService.HttpApi;
 public class CouponController : ControllerBase
 {
     private readonly ICouponService _couponService;
-    private readonly ResponseDto _response;
     public CouponController(ICouponService couponService)
     {
         _couponService = couponService;
-        _response = new ResponseDto();
     }
     [HttpGet("list")]
-    public async Task<ResponseDto> GetList([FromQuery] PagedRequestDto pagedRequestDto)
+    public async Task<ResponseDto<PagedResultDto<CouponDto>>> GetList([FromQuery] PagedRequestDto pagedRequestDto)
     {
+        ResponseDto<PagedResultDto<CouponDto>> response = new();
         try
         {
             var result = await _couponService.GetListAsync(pagedRequestDto);
-            _response.Result = result;
+           
+            response.Result = result;
         }
         catch (Exception ex)
         {
-            _response.IsSuccess = false;
-            _response.Message = ex.Message;
+            response.IsSuccess = false;
+            response.Message = ex.Message;
         }
-        return _response;
+        return response;
     }
     [HttpGet]
     [Route("GetById/{id}")]
-    public async Task<ResponseDto> GetById(Guid id)
+    public async Task<ResponseDto<CouponDto>> GetById(Guid id)
     {
+        ResponseDto<CouponDto> response = new();
         try
         {
             var result = await _couponService.GetAsync(id);
-            _response.Result = result;
+            response.Result = result;
         }
         catch (Exception ex)
         {
-            _response.IsSuccess = false;
-            _response.Message = ex.Message;
+            response.IsSuccess = false;
+            response.Message = ex.Message;
         }
-        return _response;
+        return response;
     }
     [HttpGet]
     [Route("GetByCode/{code}")]
-    public async Task<ResponseDto> GetByCode(string code)
+    public async Task<ResponseDto<CouponDto>> GetByCode(string code)
     {
+        ResponseDto<CouponDto> response = new();
         try
         {
             var result = await _couponService.GetByCodeAsync(code);
-            _response.Result = result;
+            response.Result = result;
         }
         catch (Exception ex)
         {
-            _response.IsSuccess = false;
-            _response.Message = ex.Message;
+            response.IsSuccess = false;
+            response.Message = ex.Message;
         }
-        return _response;
+        return response;
     }
     [HttpPost]
-    public async Task<ResponseDto> Create([FromBody] CreateCouponDto couponDto)
+    public async Task<ResponseDto<CouponDto>> Create([FromBody] CreateCouponDto couponDto)
     {
+        ResponseDto<CouponDto> response = new();
         try
         {
             var result = await _couponService.CreateAsync(couponDto);
-            _response.Result = result;
+            response.Result = result;
         }
         catch (Exception ex)
         {
-            _response.IsSuccess = false;
-            _response.Message = ex.Message;
+            response.IsSuccess = false;
+            response.Message = ex.Message;
         }
-        return _response;
+        return response;
     }
     [HttpDelete]
-    public async Task<ResponseDto> Delete(Guid id)
+    public async Task<ResponseDto<CouponDto>> Delete(Guid id)
     {
+        ResponseDto<CouponDto> response = new();
         try
         {
             await _couponService.DeleteAsync(id);
         }
         catch (Exception ex)
         {
-            _response.IsSuccess = false;
-            _response.Message = ex.Message;
+            response.IsSuccess = false;
+            response.Message = ex.Message;
         }
-        return _response;
+        return response;
     }
 
     [HttpPut]
-    public async Task<ResponseDto> Update(Guid id, [FromBody] UpdateCouponDto couponDto)
+    public async Task<ResponseDto<CouponDto>> Update(Guid id, [FromBody] UpdateCouponDto couponDto)
     {
+        ResponseDto<CouponDto> response = new();
         try
         {
             var result = await _couponService.UpdateAsync(id, couponDto);
-            _response.Result = result;
+            response.Result = result;
         }
         catch (Exception ex)
         {
-            _response.IsSuccess = false;
-            _response.Message = ex.Message;
+            response.IsSuccess = false;
+            response.Message = ex.Message;
         }
-        return _response;
+        return response;
     }
 }
 
