@@ -1,5 +1,5 @@
 ﻿namespace DotnetWorld.DDD.Application.Contracts;
-public interface IUpdateAppService<TDto, TKey, TUpdateDto>
+public interface IUpdateAppService<TDto,TUpdateDto>
 {
-    Task<TDto> UpdateAsync(TKey id, TUpdateDto input);
+    Task<TDto> UpdateAsync(TUpdateDto input);
 }

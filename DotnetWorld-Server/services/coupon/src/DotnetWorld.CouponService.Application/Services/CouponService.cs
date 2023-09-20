@@ -6,7 +6,7 @@ using DotnetWorld.DDD.Application.Contracts;
 
 namespace DotnetWorld.CouponService.Application;
 public class CouponService :
-    CrudAppService<Coupon, CouponDto, Guid, CreateCouponDto, UpdateCouponDto, PagedRequestDto>,
+    CrudAppService<Coupon, CouponDto, Guid, CreateCouponDto, UpdateCouponDto>,
     ICouponService
 {
     private readonly IRepository<Coupon,Guid> _repository;
@@ -55,24 +55,21 @@ public class CouponService :
         return ObjectMapper.Map<Coupon, CouponDto>(coupon);
     }
 
-    public async override Task<PagedResultDto<CouponDto>> GetListAsync(PagedRequestDto input)
+    public async override Task<List<CouponDto>> GetListAsync()
     {
-        List<Coupon> coupons = await _repository.GetListAsync(input.SkipCount,input.MaxResultCount);
+        List<Coupon> coupons = await _repository.GetListAsync();
         if (coupons == null)
         {
             throw new Exception("Данные не найдены");
         }
         var result = ObjectMapper.Map<List<Coupon>, List<CouponDto>>(coupons);
-        return new PagedResultDto<CouponDto>
-        {
-            Items = result,
-        };
+        return result;
+       
     }
 
-    public async override Task<CouponDto> UpdateAsync(Guid id, UpdateCouponDto input)
+    public async override Task<CouponDto> UpdateAsync(UpdateCouponDto input)
     {
         Coupon coupon = ObjectMapper.Map<UpdateCouponDto, Coupon>(input);
-        coupon.Id = id;
         await _repository.UpdateAsync(coupon);
         await _unitOfWork.SaveChangesAsync();
         return ObjectMapper.Map<Coupon, CouponDto>(coupon);

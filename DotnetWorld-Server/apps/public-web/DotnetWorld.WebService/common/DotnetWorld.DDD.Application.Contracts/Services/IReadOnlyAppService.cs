@@ -1,7 +1,7 @@
 ﻿namespace DotnetWorld.DDD.Application.Contracts;
-public interface IReadOnlyAppService<TDto, TKey, TPagedRequestDto>
-    where TPagedRequestDto : PagedRequestDto
+public interface IReadOnlyAppService<TDto, TKey>
+    
 {
     Task<TDto> GetAsync(TKey id);
-    Task<PagedResultDto<TDto>> GetListAsync(TPagedRequestDto input);
+    Task<List<TDto>> GetListAsync();
 }

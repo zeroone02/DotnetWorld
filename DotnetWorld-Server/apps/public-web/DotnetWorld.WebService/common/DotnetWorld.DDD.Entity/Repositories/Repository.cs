@@ -28,9 +28,9 @@ public class Repository<TEntity, TKey> : IRepository<TEntity, TKey> where TEntit
         var dbSet = _dbContext.Set<TEntity>();
         return dbSet;
     }
-    public async Task<List<TEntity>> GetListAsync(int skip, int take)
+    public async Task<List<TEntity>> GetListAsync()
     {
-        var list = await _dbContext.Set<TEntity>().Skip(skip).Take(take).ToListAsync();
+        var list = await _dbContext.Set<TEntity>().ToListAsync();
         return list;
     }
 
