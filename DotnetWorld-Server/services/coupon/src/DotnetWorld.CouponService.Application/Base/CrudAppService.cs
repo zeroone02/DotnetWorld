@@ -2,8 +2,8 @@
 using DotnetWorld.DDD.Application.Contracts;
 
 namespace DotnetWorld.CouponService.Application;
-public abstract class CrudAppService<TEntity, TDto, TKey, TCreateDto, TUpdateDto, TPagedRequestDto>
-    : ICrudAppService<TDto, TKey, TCreateDto, TUpdateDto, TPagedRequestDto> where TPagedRequestDto : PagedRequestDto
+public abstract class CrudAppService<TEntity, TDto, TKey, TCreateDto, TUpdateDto>
+    : ICrudAppService<TDto, TKey, TCreateDto, TUpdateDto>
 {
     public CrudAppService(
         IServiceProvider serviceProvider,
@@ -18,6 +18,6 @@ public abstract class CrudAppService<TEntity, TDto, TKey, TCreateDto, TUpdateDto
     public abstract Task<TDto> CreateAsync(TCreateDto input);
     public abstract Task DeleteAsync(TKey id);
     public abstract Task<TDto> GetAsync(TKey id);
-    public abstract Task<PagedResultDto<TDto>> GetListAsync(TPagedRequestDto input);
-    public abstract Task<TDto> UpdateAsync(TKey id, TUpdateDto input);
+    public abstract Task<List<TDto>> GetListAsync();
+    public abstract Task<TDto> UpdateAsync(TUpdateDto input);
 }

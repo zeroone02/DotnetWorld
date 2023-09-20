@@ -3,5 +3,5 @@
 namespace DotnetWorld.WebService.Application.Contracts;
 public interface IBaseService<TRequestData,TResponseData>
 {
-    ResponseDto<TResponseData> SendAsync(RequestDto<TRequestData> requestDto);
+    ResponseDto<TResponseData?> SendAsync(RequestDto<TRequestData> requestDto);
 }

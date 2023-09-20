@@ -7,8 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Base\" />
     <Folder Include="Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DotnetWorld.WebService.Application.Contracts\DotnetWorld.WebService.Application.Contracts.csproj" />
   </ItemGroup>
 
 </Project>

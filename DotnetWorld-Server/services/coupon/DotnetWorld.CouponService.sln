@@ -21,9 +21,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotnetWorld.DDD.Application
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotnetWorld.DDD", "common\DotnetWorld.DDD.Entity\DotnetWorld.DDD.csproj", "{4A8FAF00-4D8A-4F1E-90D0-FBDB1A6B6152}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotnetWorld.Identity", "common\DotnetWorld.Identity\DotnetWorld.Identity.csproj", "{FC1C1165-68D4-42A4-8E0B-7A66B8E60675}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotnetWorld.CouponService.HttpApi", "src\DotnetWorld.CouponService.HttpApi\DotnetWorld.CouponService.HttpApi.csproj", "{1530E1B6-7B60-4876-8B4C-0D7C29DD3EC2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotnetWorld.CouponService.HttpApi", "src\DotnetWorld.CouponService.HttpApi\DotnetWorld.CouponService.HttpApi.csproj", "{1530E1B6-7B60-4876-8B4C-0D7C29DD3EC2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -59,10 +57,6 @@ Global
 		{4A8FAF00-4D8A-4F1E-90D0-FBDB1A6B6152}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4A8FAF00-4D8A-4F1E-90D0-FBDB1A6B6152}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4A8FAF00-4D8A-4F1E-90D0-FBDB1A6B6152}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FC1C1165-68D4-42A4-8E0B-7A66B8E60675}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FC1C1165-68D4-42A4-8E0B-7A66B8E60675}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FC1C1165-68D4-42A4-8E0B-7A66B8E60675}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FC1C1165-68D4-42A4-8E0B-7A66B8E60675}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1530E1B6-7B60-4876-8B4C-0D7C29DD3EC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1530E1B6-7B60-4876-8B4C-0D7C29DD3EC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1530E1B6-7B60-4876-8B4C-0D7C29DD3EC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -79,7 +73,6 @@ Global
 		{A23DF919-EB5F-4F24-9D6F-AB8DFB26BDFB} = {265CFA3B-67E1-45C5-8C6A-FB8B13AD0EA4}
 		{013100C1-C0F8-49A1-84B6-123EA99D0255} = {AD15FAD9-D3B6-4E51-BE38-4C8D83E93D14}
 		{4A8FAF00-4D8A-4F1E-90D0-FBDB1A6B6152} = {AD15FAD9-D3B6-4E51-BE38-4C8D83E93D14}
-		{FC1C1165-68D4-42A4-8E0B-7A66B8E60675} = {AD15FAD9-D3B6-4E51-BE38-4C8D83E93D14}
 		{1530E1B6-7B60-4876-8B4C-0D7C29DD3EC2} = {265CFA3B-67E1-45C5-8C6A-FB8B13AD0EA4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
