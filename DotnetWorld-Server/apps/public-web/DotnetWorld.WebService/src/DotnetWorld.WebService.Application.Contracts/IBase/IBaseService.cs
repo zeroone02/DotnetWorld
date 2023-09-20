@@ -1,7 +1,7 @@
 ﻿using DotnetWorld.DDD;
 
 namespace DotnetWorld.WebService.Application.Contracts;
-public interface IBaseService<TRequestData,TResponseData>
+public interface IBaseService
 {
-    ResponseDto<TResponseData?> SendAsync(RequestDto<TRequestData> requestDto);
+    Task<ResponseDto>? SendAsync(RequestDto requestDto);
 }

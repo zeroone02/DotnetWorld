@@ -1,6 +1,5 @@
 ﻿using DotnetWorld.CouponService.Application.Contracts;
 using DotnetWorld.DDD;
-using DotnetWorld.DDD.Application.Contracts;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DotnetWorld.CouponService.HttpApi;
