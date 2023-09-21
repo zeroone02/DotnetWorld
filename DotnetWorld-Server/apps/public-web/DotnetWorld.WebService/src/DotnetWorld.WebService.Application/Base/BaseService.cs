@@ -8,15 +8,24 @@ using static DotnetWorld.WebService.Domain.SD;
 namespace DotnetWorld.WebService.Application;
 public class BaseService : IBaseService
 {
+    //используется для создания экземпляра HttpClient.
     private readonly IHttpClientFactory _httpClientFactory;
     public BaseService(IHttpClientFactory httpClientFactory)
     {
         _httpClientFactory = httpClientFactory;
     }
+    /// <summary>
+    /// Общая цель класса BaseService - предоставить базовую функциональность для отправки HTTP-запросов
+    /// и обработки ответов.
+    /// </summary>
+    /// <param name="requestDto"></param>
+    /// <returns></returns>
     public async Task<ResponseDto>? SendAsync(RequestDto requestDto)
     {
         try
         {
+            //создается экземпляр HttpClient с использованием _httpClientFactory.CreateClient("DotnetWorld").
+            //Это позволяет получить экземпляр HttpClient из фабрики, используя имя "DotnetWorld".
             HttpClient client = _httpClientFactory.CreateClient("DotnetWorld");
             HttpRequestMessage message = new();
 
@@ -59,6 +68,9 @@ public class BaseService : IBaseService
                 case HttpStatusCode.InternalServerError:
                     return new() { IsSuccess = false, Message = "Internal Server Error" };
                 default:
+                    //Метод ReadAsStringAsync преобразует содержимое ответа в строку.
+                    //если сервер возвращает данные в формате JSON,
+                    //мы можем использовать этот метод для получения JSON-строки из ответа и затем десериализовать ее в объекты в коде.
                     var apiContent = await apiResponse.Content.ReadAsStringAsync();
                     var apiResponseDto = JsonConvert.DeserializeObject<ResponseDto>(apiContent);
                     return apiResponseDto;
