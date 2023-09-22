@@ -6,4 +6,10 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DotnetWorld.WebService.Application.Contracts\DotnetWorld.WebService.Application.Contracts.csproj" />
+    <ProjectReference Include="..\DotnetWorld.WebService.Application\DotnetWorld.WebService.Application.csproj" />
+    <ProjectReference Include="..\DotnetWorld.WebService.Domain\DotnetWorld.WebService.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
