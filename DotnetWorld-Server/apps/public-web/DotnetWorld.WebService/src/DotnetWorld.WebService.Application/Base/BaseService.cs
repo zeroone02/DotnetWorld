@@ -20,7 +20,7 @@ public class BaseService : IBaseService
     /// </summary>
     /// <param name="requestDto"></param>
     /// <returns></returns>
-    public async Task<ResponseDto>? SendAsync(RequestDto requestDto)
+    public async Task<ResponseDto?> SendAsync(RequestDto requestDto)
     {
         try
         {
@@ -28,9 +28,9 @@ public class BaseService : IBaseService
             //Это позволяет получить экземпляр HttpClient из фабрики, используя имя "DotnetWorld".
             HttpClient client = _httpClientFactory.CreateClient("DotnetWorld");
             HttpRequestMessage message = new();
-
+            //Обозначаем формат данных ( в данном случае "application/json")
             message.Headers.Add("Accept", "application/json");
-            //token
+            //todo token
             message.RequestUri = new Uri(requestDto.Url);
             if (requestDto.Data != null)
             {
@@ -78,12 +78,12 @@ public class BaseService : IBaseService
         }
         catch (Exception ex)
         {
-            var dto = new ResponseDto
+            var responseDto = new ResponseDto
             {
                 Message = ex.Message.ToString(),
                 IsSuccess = false
             };
-            return dto;
+            return responseDto;
         }
     }
 }
