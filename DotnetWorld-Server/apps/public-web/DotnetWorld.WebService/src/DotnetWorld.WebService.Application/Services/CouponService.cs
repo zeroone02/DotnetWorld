@@ -1,5 +1,6 @@
 ﻿using DotnetWorld.DDD;
 using DotnetWorld.WebService.Application.Contracts;
+using DotnetWorld.WebService.Domain;
 
 namespace DotnetWorld.WebService.Application;
 public class CouponService : ICouponService
@@ -11,33 +12,59 @@ public class CouponService : ICouponService
         _baseService = baseService;
     }
 
-    public Task<ResponseDto> CreateCouponAsync(CouponDto couponDto)
+    public async Task<ResponseDto?> CreateCouponAsync(CouponDto couponDto)
     {
-        throw new NotImplementedException();
+        return await _baseService.SendAsync(new RequestDto()
+        {
+            ApiType = SD.ApiType.POST,
+            Url = SD.CouponAPIBase + "/api/coupon",
+            Data = couponDto
+        });
     }
 
-    public Task<ResponseDto> DeleteCouponAsync(Guid couponId)
+    public async Task<ResponseDto?> DeleteCouponAsync(Guid couponId)
     {
-        throw new NotImplementedException();
+        return await _baseService.SendAsync(new RequestDto()
+        {
+            ApiType = SD.ApiType.DELETE,
+            Url = SD.CouponAPIBase + "/api/coupon/" + couponId
+        });
     }
 
-    public Task<ResponseDto> GetAllCouponsAsync()
+    public async Task<ResponseDto?> GetAllCouponsAsync()
     {
-        throw new NotImplementedException();
+        return await _baseService.SendAsync(new RequestDto()
+        {
+            ApiType =  SD.ApiType.GET,
+            Url = SD.CouponAPIBase + "/api/coupon/list"
+        });
     }
 
-    public Task<ResponseDto> GetCouponByCodeAsync(string couponCode)
+    public async Task<ResponseDto?> GetCouponByCodeAsync(string couponCode)
     {
-        throw new NotImplementedException();
+        return await _baseService.SendAsync(new RequestDto()
+        {
+            ApiType = SD.ApiType.GET,
+            Url = SD.CouponAPIBase + "/api/coupon/GetByCode/" + couponCode
+        });
     }
 
-    public Task<ResponseDto> GetCouponByIdAsync(Guid couponId)
+    public async Task<ResponseDto?> GetCouponByIdAsync(Guid couponId)
     {
-        throw new NotImplementedException();
+        return await _baseService.SendAsync(new RequestDto()
+        {
+            ApiType = SD.ApiType.GET,
+            Url = SD.CouponAPIBase + "/api/coupon/GetById/" + couponId
+        });
     }
 
-    public Task<ResponseDto> UpdateCouponAsync(CouponDto couponDto)
+    public async Task<ResponseDto?> UpdateCouponAsync(CouponDto couponDto)
     {
-        throw new NotImplementedException();
+        return await _baseService.SendAsync(new RequestDto()
+        {
+            ApiType = SD.ApiType.PUT,
+            Url = SD.CouponAPIBase + "/api/coupon",
+            Data = couponDto
+        });
     }
 }

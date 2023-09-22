@@ -20,7 +20,7 @@ public class BaseService : IBaseService
     /// </summary>
     /// <param name="requestDto"></param>
     /// <returns></returns>
-    public async Task<ResponseDto>? SendAsync(RequestDto requestDto)
+    public async Task<ResponseDto?> SendAsync(RequestDto requestDto)
     {
         try
         {
