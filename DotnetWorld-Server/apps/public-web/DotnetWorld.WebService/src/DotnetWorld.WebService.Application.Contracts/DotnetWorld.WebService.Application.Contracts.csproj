@@ -7,12 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\common\DotnetWorld.DDD.Application.Contracts\DotnetWorld.DDD.Application.Contracts.csproj" />
     <ProjectReference Include="..\..\common\DotnetWorld.DDD.Entity\DotnetWorld.DDD.csproj" />
     <ProjectReference Include="..\DotnetWorld.WebService.Domain\DotnetWorld.WebService.Domain.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="IService\" />
   </ItemGroup>
 
 </Project>
