@@ -79,6 +79,7 @@ public class CouponController : ControllerBase
         return _response;
     }
     [HttpDelete]
+    [Route("deleteCoupon/{id}")]
     public async Task<ResponseDto> Delete(Guid id)
     {
         try
