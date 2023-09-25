@@ -7,16 +7,20 @@
 //using DotnetWorld.AuthService.Domain;
 //using DotnetWorld.AuthService.EntityFrameworkCore;
 
+using DotnetWorld.DDD;
+using eShop.AuthService.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
+
 public class Program
 {
     public static void Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
 
-        //builder.Services.AddDbContext<IEfCoreDbContext, CouponServiceDbContext>(options =>
-        //{
-        //    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
-        //});
+        builder.Services.AddDbContext<IEfCoreDbContext, AuthServiceDbContext>(options =>
+        {
+            options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
+        });
 
         ConfigureServices(builder.Services);
         //builder.AddAppAuthetication();
