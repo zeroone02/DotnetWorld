@@ -9,6 +9,7 @@
 
 using DotnetWorld.DDD;
 using eShop.AuthService.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 public class Program
@@ -21,6 +22,9 @@ public class Program
         {
             options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
         });
+
+        builder.Services.AddIdentity<IdentityUser,IdentityRole>()
+            .AddEntityFrameworkStores<AuthServiceDbContext>().AddDefaultTokenProviders();
 
         ConfigureServices(builder.Services);
         //builder.AddAppAuthetication();
