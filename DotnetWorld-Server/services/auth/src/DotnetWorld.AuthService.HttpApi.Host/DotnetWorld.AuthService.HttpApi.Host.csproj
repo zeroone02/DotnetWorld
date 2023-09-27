@@ -11,4 +11,14 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\common\DotnetWorld.DDD.Application.Contracts\DotnetWorld.DDD.Application.Contracts.csproj" />
+    <ProjectReference Include="..\..\common\DotnetWorld.DDD.Entity\DotnetWorld.DDD.csproj" />
+    <ProjectReference Include="..\DotnetWorld.AuthService.Application.Contracts\DotnetWorld.AuthService.Application.Contracts.csproj" />
+    <ProjectReference Include="..\DotnetWorld.AuthService.Application\DotnetWorld.AuthService.Application.csproj" />
+    <ProjectReference Include="..\DotnetWorld.AuthService.Domain\DotnetWorld.AuthService.Domain.csproj" />
+    <ProjectReference Include="..\DotnetWorld.AuthService.EntityFrameworkCore\DotnetWorld.AuthService.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\DotnetWorld.AuthService.HttpApi\DotnetWorld.AuthService.HttpApi.csproj" />
+  </ItemGroup>
+
 </Project>
