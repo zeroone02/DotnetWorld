@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using eShop.AuthService.EntityFrameworkCore;
@@ -11,9 +12,11 @@ using eShop.AuthService.EntityFrameworkCore;
 namespace DotnetWorld.AuthService.EntityFrameworkCore.Migrations
 {
     [DbContext(typeof(AuthServiceDbContext))]
-    partial class AuthServiceDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230928163609_AddApplicationUserToDb")]
+    partial class AddApplicationUserToDb
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

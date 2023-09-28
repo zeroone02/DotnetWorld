@@ -7,6 +7,7 @@
 //using DotnetWorld.AuthService.Domain;
 //using DotnetWorld.AuthService.EntityFrameworkCore;
 
+using DotnetWorld.AuthService.Domain;
 using DotnetWorld.DDD;
 using eShop.AuthService.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
@@ -23,8 +24,12 @@ public class Program
             options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
         });
 
-        builder.Services.AddIdentity<IdentityUser,IdentityRole>()
+        builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
             .AddEntityFrameworkStores<AuthServiceDbContext>().AddDefaultTokenProviders();
+
+        //Записываем в класс JwtOptions данные из appsettings.json ("ApiSettings:JwtOptions")
+        builder.Services.Configure<JwtOptions>(builder.Configuration
+            .GetSection("ApiSettings:JwtOptions"));
 
         ConfigureServices(builder.Services);
         //builder.AddAppAuthetication();
