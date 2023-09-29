@@ -1,12 +1,3 @@
-//using AutoMapper;
-//using DotnetWorld.Application;
-//using DotnetWorld.AuthService.Application.Contracts;
-//using DotnetWorld.AuthService.Application;
-//using DotnetWorld.DDD;
-//using Microsoft.EntityFrameworkCore;
-//using DotnetWorld.AuthService.Domain;
-//using DotnetWorld.AuthService.EntityFrameworkCore;
-
 using DotnetWorld.AuthService.Domain;
 using DotnetWorld.DDD;
 using eShop.AuthService.EntityFrameworkCore;

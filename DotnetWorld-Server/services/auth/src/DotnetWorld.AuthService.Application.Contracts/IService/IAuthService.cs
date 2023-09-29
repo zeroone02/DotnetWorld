@@ -1,6 +1,6 @@
 ﻿namespace DotnetWorld.AuthService.Application.Contracts;
 public interface IAuthService
 {
-    Task<UserDto> Register(RegistrationRequestDto registrationRequestDto);
-    Task<LoginResponseDto> Register(LoginRequestDto loginRequestDto);
+    Task<string> RegisterAsync(RegistrationRequestDto registrationRequestDto);
+    Task<LoginResponseDto> LoginAsync(LoginRequestDto loginRequestDto);
 }
