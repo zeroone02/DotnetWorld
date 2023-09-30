@@ -33,7 +33,11 @@ public class AuthService : IAuthService
             if (result.Succeeded)
             {
                 var userToReturn = _db.ApplicationUsers.First(u => u.UserName == registrationRequestDto.Email);
-                return "";
+                if (userToReturn != null)
+                {
+                    return "";
+                }
+                
             }
             else
             {

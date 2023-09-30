@@ -14,4 +14,11 @@
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DotnetWorld.AuthService.Application.Contracts\DotnetWorld.AuthService.Application.Contracts.csproj" />
+    <ProjectReference Include="..\DotnetWorld.AuthService.Application\DotnetWorld.AuthService.Application.csproj" />
+    <ProjectReference Include="..\DotnetWorld.AuthService.Domain\DotnetWorld.AuthService.Domain.csproj" />
+    <ProjectReference Include="..\DotnetWorld.AuthService.EntityFrameworkCore\DotnetWorld.AuthService.EntityFrameworkCore.csproj" />
+  </ItemGroup>
+
 </Project>

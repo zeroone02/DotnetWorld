@@ -1,3 +1,5 @@
+using DotnetWorld.AuthService.Application;
+using DotnetWorld.AuthService.Application.Contracts;
 using DotnetWorld.AuthService.Domain;
 using DotnetWorld.DDD;
 using eShop.AuthService.EntityFrameworkCore;
@@ -15,6 +17,7 @@ public class Program
             options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
         });
 
+        //Добавляем возможность создавать UserManager и RoleManager
         builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
             .AddEntityFrameworkStores<AuthServiceDbContext>().AddDefaultTokenProviders();
 
@@ -80,19 +83,11 @@ public class Program
     }
     private static void ConfigureApplicationServices(IServiceCollection services)
     {
-        //services.AddTransient<ICouponService, CouponService>();
-        //services.AddTransient<UnitOfWork>();
-
-        //var mapperConfig = new MapperConfiguration(mc =>
-        //{
-        //    mc.AddProfile(new DotnetWorldApplicationObjectMapper());
-        //});
-
-        //IMapper mapper = mapperConfig.CreateMapper();
-        //services.AddSingleton(mapper);
+        services.AddTransient<IAuthService, AuthService>();
+        services.AddTransient<UnitOfWork>();
+        services.AddTransient<IJwtTokenGenerator, JwtTokenGenerator>();
     }
     private static void ConfigureEntityFrameworkCore(IServiceCollection services)
     {
-        //services.AddTransient<IRepository<Coupon, Guid>, Repository<Coupon, Guid>>();
     }
 }
