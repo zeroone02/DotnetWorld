@@ -15,23 +15,23 @@ public class AuthController : ControllerBase
         _response = new();
     }
 
-    //[HttpPost("AssignRole")]
-    //public async Task<IActionResult> AssignRole([FromBody] RegistrationRequestDto model)
-    //{
-    //    var assignRoleSuccessful = await _authService.AssignRole(model.Email, model.Role.ToUpper());
-    //    if (!assignRoleSuccessful)
-    //    {
-    //        _response.IsSuccess = false;
-    //        _response.Message = "Error encountered";
-    //        return BadRequest(_response);
-    //    }
-    //    return Ok(_response);
-    //}
+    [HttpPost("AssignRole")]
+    public async Task<IActionResult> AssignRole([FromBody] RegistrationRequestDto model)
+    {
+        var assignRoleSuccessful = await _authService.AssignRole(model.Email, model.Role.ToUpper());
+        if (!assignRoleSuccessful)
+        {
+            _response.IsSuccess = false;
+            _response.Message = "Error encountered";
+            return BadRequest(_response);
+        }
+        return Ok(_response);
+    }
 
     [HttpPost("register")]
-    public async Task<IActionResult> RegisterAsync([FromBody] RegistrationRequestDto model)
+    public async Task<IActionResult> Register([FromBody] RegistrationRequestDto model)
     {
-        var errorMessage = await _authService.RegisterAsync(model);
+        var errorMessage = await _authService.Register(model);
         if (!string.IsNullOrEmpty(errorMessage))
         {
             _response.IsSuccess = false;
@@ -42,9 +42,9 @@ public class AuthController : ControllerBase
     }
 
     [HttpPost("login")]
-    public async Task<IActionResult> LoginAsync([FromBody] LoginRequestDto model)
+    public async Task<IActionResult> Login([FromBody] LoginRequestDto model)
     {
-        var loginResponse = await _authService.LoginAsync(model);
+        var loginResponse = await _authService.Login(model);
         if (loginResponse.User == null)
         {
             _response.IsSuccess = false;
