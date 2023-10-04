@@ -2,7 +2,7 @@
 using DotnetWorld.WebService.Application.Contracts;
 
 namespace DotnetWorld.WebService.Application.Contracts;
-public interface IBaseService
+public interface IHttpClientService
 {
     Task<ResponseDto?> SendAsync(RequestDto requestDto);
 }

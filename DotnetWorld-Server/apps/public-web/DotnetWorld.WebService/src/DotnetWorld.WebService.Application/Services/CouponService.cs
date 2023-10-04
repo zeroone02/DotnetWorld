@@ -5,16 +5,15 @@ using DotnetWorld.WebService.Domain;
 namespace DotnetWorld.WebService.Application;
 public class CouponService : ICouponService
 {
-    public readonly IBaseService _baseService;
-
-    public CouponService(IBaseService baseService)
+    public readonly IHttpClientService _httpClientService;
+    public CouponService(IHttpClientService httpClientService)
     {
-        _baseService = baseService;
+        _httpClientService = httpClientService;
     }
 
     public async Task<ResponseDto?> CreateCouponAsync(CouponDto couponDto)
     {
-        return await _baseService.SendAsync(new RequestDto()
+        return await _httpClientService.SendAsync(new RequestDto()
         {
             ApiType = SD.ApiType.POST,
             Url = SD.CouponAPIBase + "/api/coupon",
@@ -24,7 +23,7 @@ public class CouponService : ICouponService
 
     public async Task<ResponseDto?> DeleteCouponAsync(Guid couponId)
     {
-        return await _baseService.SendAsync(new RequestDto()
+        return await _httpClientService.SendAsync(new RequestDto()
         {
             ApiType = SD.ApiType.DELETE,
             Url = SD.CouponAPIBase + "/api/coupon/deleteCoupon/" + couponId
@@ -33,7 +32,7 @@ public class CouponService : ICouponService
 
     public async Task<ResponseDto?> GetAllCouponsAsync()
     {
-        return await _baseService.SendAsync(new RequestDto()
+        return await _httpClientService.SendAsync(new RequestDto()
         {
             ApiType =  SD.ApiType.GET,
             Url = SD.CouponAPIBase + "/api/coupon/list"
@@ -42,7 +41,7 @@ public class CouponService : ICouponService
 
     public async Task<ResponseDto?> GetCouponByCodeAsync(string couponCode)
     {
-        return await _baseService.SendAsync(new RequestDto()
+        return await _httpClientService.SendAsync(new RequestDto()
         {
             ApiType = SD.ApiType.GET,
             Url = SD.CouponAPIBase + "/api/coupon/GetByCode/" + couponCode
@@ -51,7 +50,7 @@ public class CouponService : ICouponService
 
     public async Task<ResponseDto?> GetCouponByIdAsync(Guid couponId)
     {
-        return await _baseService.SendAsync(new RequestDto()
+        return await _httpClientService.SendAsync(new RequestDto()
         {
             ApiType = SD.ApiType.GET,
             Url = SD.CouponAPIBase + "/api/coupon/GetById/" + couponId
@@ -60,7 +59,7 @@ public class CouponService : ICouponService
 
     public async Task<ResponseDto?> UpdateCouponAsync(CouponDto couponDto)
     {
-        return await _baseService.SendAsync(new RequestDto()
+        return await _httpClientService.SendAsync(new RequestDto()
         {
             ApiType = SD.ApiType.PUT,
             Url = SD.CouponAPIBase + "/api/coupon",

@@ -50,7 +50,7 @@ public class Program
         //HttpClients
         services.AddHttpClient<ICouponService, CouponService>();
         //Services
-        services.AddTransient<IBaseService, BaseService>();
+        services.AddTransient<IHttpClientService, HttpClientService>();
         services.AddTransient<ICouponService, CouponService>();
 
     }
