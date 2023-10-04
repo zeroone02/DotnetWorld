@@ -10,6 +10,7 @@ public class Program
         var builder = WebApplication.CreateBuilder(args);
 
         SD.CouponAPIBase = builder.Configuration["ServiceUrls:CouponAPI"];
+        SD.AuthAPIBase = builder.Configuration["ServiceUrls:AuthAPI"];
 
         ConfigureServices(builder.Services);
 
