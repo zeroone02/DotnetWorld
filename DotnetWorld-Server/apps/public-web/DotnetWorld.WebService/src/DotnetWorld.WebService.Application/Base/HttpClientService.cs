@@ -6,11 +6,11 @@ using System.Text;
 using static DotnetWorld.WebService.Domain.SD;
 
 namespace DotnetWorld.WebService.Application;
-public class BaseService : IBaseService
+public class HttpClientService : IHttpClientService
 {
     //используется для создания экземпляра HttpClient.
     private readonly IHttpClientFactory _httpClientFactory;
-    public BaseService(IHttpClientFactory httpClientFactory)
+    public HttpClientService(IHttpClientFactory httpClientFactory)
     {
         _httpClientFactory = httpClientFactory;
     }

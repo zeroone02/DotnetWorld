@@ -7,7 +7,6 @@ namespace DotnetWorld.WebService.Controllers;
 public class CouponController : Controller
 {
     private readonly ICouponService _couponService;
-
     public CouponController(ICouponService couponService)
     {
         _couponService = couponService;
@@ -63,7 +62,6 @@ public class CouponController : Controller
         {
             TempData["error"] = response?.Message;
         }
-
         return NotFound();
     }
 
@@ -81,7 +79,6 @@ public class CouponController : Controller
         {
             TempData["error"] = response?.Message;
         }
-
         return View(couponDto);
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace DotnetWorld.AuthService.Application.Contracts;
+﻿namespace DotnetWorld.WebService.Application.Contracts;
 public class RegistrationRequestDto
 {
     public string Email { get; set; }
