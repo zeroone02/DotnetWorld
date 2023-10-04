@@ -1,4 +1,3 @@
-
 using DotnetWorld.WebService.Application;
 using DotnetWorld.WebService.Application.Contracts;
 using DotnetWorld.WebService.Domain;
@@ -49,9 +48,11 @@ public class Program
         services.AddHttpClient();
         //HttpClients
         services.AddHttpClient<ICouponService, CouponService>();
+        services.AddHttpClient<IAuthService, AuthService>();
         //Services
         services.AddTransient<IHttpClientService, HttpClientService>();
         services.AddTransient<ICouponService, CouponService>();
+        services.AddTransient<IAuthService, AuthService>();
 
     }
     private static void ConfigureAuthentication(IServiceCollection services)

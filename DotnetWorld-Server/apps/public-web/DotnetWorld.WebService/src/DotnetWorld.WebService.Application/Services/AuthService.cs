@@ -2,7 +2,7 @@
 using DotnetWorld.WebService.Application.Contracts;
 using DotnetWorld.WebService.Domain;
 
-namespace DotnetWorld.WebService.Application.Services;
+namespace DotnetWorld.WebService.Application;
 public class AuthService : IAuthService
 {
     public readonly IHttpClientService _httpClientService;
@@ -22,11 +22,21 @@ public class AuthService : IAuthService
 
     public async Task<ResponseDto?> LoginAsync(LoginRequestDto loginRequestDto)
     {
-        throw new NotImplementedException();
+        return await _httpClientService.SendAsync(new RequestDto()
+        {
+            ApiType = SD.ApiType.POST,
+            Url = SD.AuthAPIBase + "/api/auth/login",
+            Data = loginRequestDto
+        });
     }
 
     public async Task<ResponseDto?> RegisterAsync(RegistrationRequestDto registrationRequestDto)
     {
-        throw new NotImplementedException();
+        return await _httpClientService.SendAsync(new RequestDto()
+        {
+            ApiType = SD.ApiType.POST,
+            Url = SD.AuthAPIBase + "/api/auth/register",
+            Data = registrationRequestDto
+        });
     }
 }
