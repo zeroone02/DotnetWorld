@@ -53,6 +53,7 @@ public class Program
         services.AddTransient<IHttpClientService, HttpClientService>();
         services.AddTransient<ICouponService, CouponService>();
         services.AddTransient<IAuthService, AuthService>();
+        services.AddTransient<ITokenProvider, TokenProvider>();
 
     }
     private static void ConfigureAuthentication(IServiceCollection services)
