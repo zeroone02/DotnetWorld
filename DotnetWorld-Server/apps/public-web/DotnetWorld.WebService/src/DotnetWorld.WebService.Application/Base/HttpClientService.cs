@@ -15,7 +15,7 @@ public class HttpClientService : IHttpClientService
         _httpClientFactory = httpClientFactory;
     }
     /// <summary>
-    /// Общая цель класса BaseService - предоставить базовую функциональность для отправки HTTP-запросов
+    /// Общая цель класса HttpClientService - предоставить базовую функциональность для отправки HTTP-запросов
     /// и обработки ответов.
     /// </summary>
     /// <param name="requestDto"></param>
