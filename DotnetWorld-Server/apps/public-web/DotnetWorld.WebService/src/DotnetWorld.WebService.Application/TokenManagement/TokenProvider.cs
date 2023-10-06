@@ -4,6 +4,9 @@ using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json.Linq;
 
 namespace DotnetWorld.WebService.Application;
+/// <summary>
+/// 
+/// </summary>
 public class TokenProvider : ITokenProvider
 {
     private readonly IHttpContextAccessor _contextAccessor;
