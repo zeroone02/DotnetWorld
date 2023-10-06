@@ -1,9 +1,13 @@
 ﻿using DotnetWorld.DDD;
 using DotnetWorld.WebService.Application.Contracts;
 using DotnetWorld.WebService.Domain;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Newtonsoft.Json;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 
 namespace DotnetWorld.WebService.Controllers;
 public class AuthController : Controller
@@ -73,5 +77,35 @@ public class AuthController : Controller
     public IActionResult Logout()
     {
         return View();
+    }
+    private async Task SignInAsync(LoginResponseDto model)
+    {
+        var handler = new JwtSecurityTokenHandler();
+
+        var jwt = handler.ReadJwtToken(model.Token);
+        //данные пользователя
+        var identity = new ClaimsIdentity(CookieAuthenticationDefaults.AuthenticationScheme);
+
+        identity.AddClaim(new Claim(JwtRegisteredClaimNames.Email,
+            jwt.Claims.FirstOrDefault(u => u.Type == JwtRegisteredClaimNames.Email).Value));
+        identity.AddClaim(new Claim(JwtRegisteredClaimNames.Sub,
+            jwt.Claims.FirstOrDefault(u => u.Type == JwtRegisteredClaimNames.Sub).Value));
+        identity.AddClaim(new Claim(JwtRegisteredClaimNames.Name,
+            jwt.Claims.FirstOrDefault(u => u.Type == JwtRegisteredClaimNames.Name).Value));
+
+
+        identity.AddClaim(new Claim(ClaimTypes.Name,
+            jwt.Claims.FirstOrDefault(u => u.Type == JwtRegisteredClaimNames.Email).Value));
+        identity.AddClaim(new Claim(ClaimTypes.Role,
+            jwt.Claims.FirstOrDefault(u => u.Type == "role").Value));
+
+
+        //Это единое утверждение, содержащее набор claim.
+        var principal = new ClaimsPrincipal(identity);
+
+        //HttpContext.SignInAsync сериализует principal
+        //и поместит его в зашифрованный cookie,
+        //который в свою очередь будет прикреплен к ответу веб - сервера и сохранен на стороне клиента:
+        await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
     }
 }

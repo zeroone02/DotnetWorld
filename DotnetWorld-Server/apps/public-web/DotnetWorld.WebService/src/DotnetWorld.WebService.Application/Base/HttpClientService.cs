@@ -6,6 +6,12 @@ using System.Text;
 using static DotnetWorld.WebService.Domain.SD;
 
 namespace DotnetWorld.WebService.Application;
+/// <summary>
+/// Общая цель класса HttpClientService - предоставить базовую функциональность для отправки HTTP-запросов
+/// и обработки ответов.
+/// </summary>
+/// <param name="requestDto"></param>
+/// <returns></returns>
 public class HttpClientService : IHttpClientService
 {
     //используется для создания экземпляра HttpClient.
@@ -14,12 +20,6 @@ public class HttpClientService : IHttpClientService
     {
         _httpClientFactory = httpClientFactory;
     }
-    /// <summary>
-    /// Общая цель класса HttpClientService - предоставить базовую функциональность для отправки HTTP-запросов
-    /// и обработки ответов.
-    /// </summary>
-    /// <param name="requestDto"></param>
-    /// <returns></returns>
     public async Task<ResponseDto?> SendAsync(RequestDto requestDto)
     {
         try
