@@ -34,6 +34,8 @@ public class AuthController : Controller
         {
             LoginResponseDto loginResponseDto =
                 JsonConvert.DeserializeObject<LoginResponseDto>(Convert.ToString(responseDto.Result));
+            await SignInUser(loginResponseDto);
+            
             _tokenProvider.SetToken(loginResponseDto.Token);
             return RedirectToAction("Index", "Home");
         }
@@ -74,11 +76,13 @@ public class AuthController : Controller
         }
         return View();
     }
-    public IActionResult Logout()
+    public async Task<IActionResult> Logout()
     {
-        return View();
+        await HttpContext.SignOutAsync();
+        _tokenProvider.ClearToken();
+        return RedirectToAction("Index", "Home");
     }
-    private async Task SignInAsync(LoginResponseDto model)
+    private async Task SignInUser(LoginResponseDto model)
     {
         var handler = new JwtSecurityTokenHandler();
 
@@ -103,6 +107,7 @@ public class AuthController : Controller
         //Это единое утверждение, содержащее набор claim.
         var principal = new ClaimsPrincipal(identity);
 
+        //создать cookie, содержащий информацию о пользователе,
         //HttpContext.SignInAsync сериализует principal
         //и поместит его в зашифрованный cookie,
         //который в свою очередь будет прикреплен к ответу веб - сервера и сохранен на стороне клиента:
