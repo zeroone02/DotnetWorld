@@ -1,6 +1,7 @@
 using DotnetWorld.WebService.Application;
 using DotnetWorld.WebService.Application.Contracts;
 using DotnetWorld.WebService.Domain;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 public class Program
 {
@@ -12,8 +13,14 @@ public class Program
         SD.AuthAPIBase = builder.Configuration["ServiceUrls:AuthAPI"];
 
         ConfigureServices(builder.Services);
-
-
+        //После вызова singinasync создается auth токен  с ExpireTimeSpan = 10 и прочими options
+        builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.ExpireTimeSpan = TimeSpan.FromHours(10);
+        options.LoginPath = "/Auth/Login";
+        options.AccessDeniedPath = "/Auth/AccessDenied";
+    });
 
         var app = builder.Build();
 
@@ -28,6 +35,7 @@ public class Program
 
         app.UseRouting();
 
+        app.UseAuthentication();
         app.UseAuthorization();
 
         app.MapControllerRoute(
