@@ -7,8 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Entities\Auditing\**" />
     <Compile Remove="Exceptions\**" />
+    <EmbeddedResource Remove="Entities\Auditing\**" />
     <EmbeddedResource Remove="Exceptions\**" />
+    <None Remove="Entities\Auditing\**" />
     <None Remove="Exceptions\**" />
   </ItemGroup>
 
@@ -19,10 +22,6 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
     <PackageReference Include="Npgsql" Version="7.0.4" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Entities\Auditing\" />
   </ItemGroup>
 
 </Project>
