@@ -1,11 +1,10 @@
 using AutoMapper;
-using DotnetWorld.Application;
-using DotnetWorld.CouponService.Application.Contracts;
-using DotnetWorld.CouponService.Application;
+using DotnetWorld.ProductService.Application.Contracts;
+using DotnetWorld.ProductService.Application;
 using DotnetWorld.DDD;
 using Microsoft.EntityFrameworkCore;
-using DotnetWorld.CouponService.Domain;
-using DotnetWorld.CouponService.EntityFrameworkCore;
+using DotnetWorld.ProductService.Domain;
+using DotnetWorld.ProductService.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.OpenApi.Models;
 

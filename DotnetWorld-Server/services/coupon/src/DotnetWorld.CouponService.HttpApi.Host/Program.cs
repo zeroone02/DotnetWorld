@@ -1,5 +1,4 @@
 using AutoMapper;
-using DotnetWorld.Application;
 using DotnetWorld.CouponService.Application.Contracts;
 using DotnetWorld.CouponService.Application;
 using DotnetWorld.DDD;

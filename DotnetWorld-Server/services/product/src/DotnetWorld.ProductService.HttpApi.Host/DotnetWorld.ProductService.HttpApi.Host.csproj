@@ -6,9 +6,17 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.5" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
-  </ItemGroup>
-
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.5" />
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.9" />
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\..\common\DotnetWorld.DDD.Application.Contracts\DotnetWorld.DDD.Application.Contracts.csproj" />
+		<ProjectReference Include="..\..\common\DotnetWorld.DDD.Entity\DotnetWorld.DDD.csproj" />
+		<ProjectReference Include="..\DotnetWorld.ProductService.Application\DotnetWorld.ProductService.Application.csproj" />
+		<ProjectReference Include="..\DotnetWorld.ProductService.Domain\DotnetWorld.ProductService.Domain.csproj" />
+		<ProjectReference Include="..\DotnetWorld.ProductService.EntityFrameworkCore\DotnetWorld.ProductService.EntityFrameworkCore.csproj" />
+		<ProjectReference Include="..\DotnetWorld.ProductService.HttpApi\DotnetWorld.ProductService.HttpApi.csproj" />
+	</ItemGroup>
 </Project>
