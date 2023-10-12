@@ -6,4 +6,15 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\common\DotnetWorld.DDD.Application.Contracts\DotnetWorld.DDD.Application.Contracts.csproj" />
+    <ProjectReference Include="..\DotnetWorld.ProductService.Application.Contracts\DotnetWorld.ProductService.Application.Contracts.csproj" />
+    <ProjectReference Include="..\DotnetWorld.ProductService.Domain\DotnetWorld.ProductService.Domain.csproj" />
+  </ItemGroup>
+	
+
 </Project>

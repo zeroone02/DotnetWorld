@@ -21,6 +21,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotnetWorld.DDD.Application
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotnetWorld.DDD", "common\DotnetWorld.DDD.Entity\DotnetWorld.DDD.csproj", "{F3BD2C93-4E90-4DAC-AE50-4BBB19927133}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotnetWorld.ProductService.HttpApi", "src\DotnetWorld.ProductService.HttpApi\DotnetWorld.ProductService.HttpApi.csproj", "{D37DB867-DB12-4245-A08D-191540BEDD38}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,10 @@ Global
 		{F3BD2C93-4E90-4DAC-AE50-4BBB19927133}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F3BD2C93-4E90-4DAC-AE50-4BBB19927133}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F3BD2C93-4E90-4DAC-AE50-4BBB19927133}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D37DB867-DB12-4245-A08D-191540BEDD38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D37DB867-DB12-4245-A08D-191540BEDD38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D37DB867-DB12-4245-A08D-191540BEDD38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D37DB867-DB12-4245-A08D-191540BEDD38}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -67,6 +73,7 @@ Global
 		{D2473A9E-BCE2-493A-9768-2DC3ADE31308} = {8A14EAEB-0F93-47FE-B15F-7AE180F08766}
 		{FA6CF874-8403-472D-96C8-DFC3B249D730} = {F94BF78F-F538-478E-946D-555E01DACA11}
 		{F3BD2C93-4E90-4DAC-AE50-4BBB19927133} = {F94BF78F-F538-478E-946D-555E01DACA11}
+		{D37DB867-DB12-4245-A08D-191540BEDD38} = {8A14EAEB-0F93-47FE-B15F-7AE180F08766}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BB24F4E8-659D-4644-A894-6051D7A9661E}

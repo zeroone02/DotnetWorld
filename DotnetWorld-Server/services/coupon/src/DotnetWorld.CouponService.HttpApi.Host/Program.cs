@@ -1,5 +1,4 @@
 using AutoMapper;
-using DotnetWorld.Application;
 using DotnetWorld.CouponService.Application.Contracts;
 using DotnetWorld.CouponService.Application;
 using DotnetWorld.DDD;
@@ -43,7 +42,6 @@ public class Program
     {
         ConfigureEntityFrameworkCore(services);
         ConfigureApplicationServices(services);
-        ConfigureAuthentication(services);
 
         services.AddControllers();
         services.AddEndpointsApiExplorer();
@@ -72,9 +70,7 @@ public class Program
     });
         });
     }
-    private static void ConfigureAuthentication(IServiceCollection services)
-    {
-    }
+   
     private static void ConfigureApplicationServices(IServiceCollection services)
     {
         services.AddTransient<ICouponService, CouponService>();

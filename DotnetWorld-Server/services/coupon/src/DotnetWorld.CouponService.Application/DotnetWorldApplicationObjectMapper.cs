@@ -3,7 +3,7 @@ using DotnetWorld.CouponService.Application.Contracts;
 using DotnetWorld.CouponService.Domain;
 using DotnetWorld.DDD;
 
-namespace DotnetWorld.Application;
+namespace DotnetWorld.CouponService.Application;
 public class DotnetWorldApplicationObjectMapper : Profile
 {
     public DotnetWorldApplicationObjectMapper()
