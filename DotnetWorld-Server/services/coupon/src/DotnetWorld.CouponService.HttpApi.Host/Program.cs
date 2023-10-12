@@ -6,6 +6,8 @@ using DotnetWorld.DDD;
 using Microsoft.EntityFrameworkCore;
 using DotnetWorld.CouponService.Domain;
 using DotnetWorld.CouponService.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.OpenApi.Models;
 
 public class Program
 {
@@ -19,7 +21,8 @@ public class Program
         });
 
         ConfigureServices(builder.Services);
-        //builder.AddAppAuthetication();
+        builder.AddAppAuthetication();
+        builder.Services.AddAuthorization();
 
         var app = builder.Build();
 
@@ -31,6 +34,7 @@ public class Program
         }
 
         app.UseHttpsRedirection();
+        app.UseAuthentication();
         app.UseAuthorization();
         app.MapControllers();
         app.Run();
@@ -43,33 +47,30 @@ public class Program
 
         services.AddControllers();
         services.AddEndpointsApiExplorer();
-        services.AddSwaggerGen();
-        #region addswaggerWithAuth
-        //    services.AddSwaggerGen(option =>
-        //    {
-        //        option.AddSecurityDefinition(name: JwtBearerDefaults.AuthenticationScheme, securityScheme: new OpenApiSecurityScheme
-        //        {
-        //            Name = "Authorization",
-        //            Description = "Enter the Bearer Authorization string as following: `Bearer Generated-JWT-Token`",
-        //            In = ParameterLocation.Header,
-        //            Type = SecuritySchemeType.ApiKey,
-        //            Scheme = "Bearer"
-        //        });
-        //        option.AddSecurityRequirement(new OpenApiSecurityRequirement
-        //{
-        //    {
-        //        new OpenApiSecurityScheme
-        //        {
-        //            Reference= new OpenApiReference
-        //            {
-        //                Type=ReferenceType.SecurityScheme,
-        //                Id=JwtBearerDefaults.AuthenticationScheme
-        //            }
-        //        }, new string[]{}
-        //    }
-        //});
-        //    });
-        #endregion
+        services.AddSwaggerGen(option =>
+        {
+            option.AddSecurityDefinition(name: JwtBearerDefaults.AuthenticationScheme, securityScheme: new OpenApiSecurityScheme
+            {
+                Name = "Authorization",
+                Description = "Enter the Bearer Authorization string as following: `Bearer Generated-JWT-Token`",
+                In = ParameterLocation.Header,
+                Type = SecuritySchemeType.ApiKey,
+                Scheme = "Bearer"
+            });
+            option.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+            {
+                new OpenApiSecurityScheme
+                {
+                    Reference= new OpenApiReference
+                    {
+                        Type=ReferenceType.SecurityScheme,
+                        Id=JwtBearerDefaults.AuthenticationScheme
+                    }
+                }, new string[]{}
+            }
+    });
+        });
     }
     private static void ConfigureAuthentication(IServiceCollection services)
     {
