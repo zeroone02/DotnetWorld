@@ -46,8 +46,8 @@ public class ProductService :
             {
                 input.Image.CopyTo(fileStream);
             }
-            product.SetImageUrl(inputBaseUrl + "/ProductImages/" + fileName);
-            product.SetImageLocalPath(filePath);
+            product.SetImageUrl(inputBaseUrl + "/ProductImages/" + fileName)
+                   .SetImageLocalPath(filePath);
         }
         else
         {
@@ -126,8 +126,8 @@ public class ProductService :
             {
                 input.Image.CopyTo(fileStream);
             }
-            product.SetImageUrl(inputBaseUrl + "/ProductImages/" + fileName);
-            product.SetImageLocalPath(filePath);
+            product.SetImageUrl(inputBaseUrl + "/ProductImages/" + fileName)
+                   .SetImageLocalPath(filePath);
 
             await _repository.UpdateAsync(product);
             await _unitOfWork.SaveChangesAsync();

@@ -41,12 +41,15 @@ public class Product : AggregateRoot<Guid>
     public string? ImageUrl { get; protected set; }
     public string? ImageLocalPath { get; protected set; }
 
-    public void SetImageUrl(string imageUrl)
+    //Паттерн FluentBuilder
+    public Product SetImageUrl(string imageUrl)
     { 
         ImageUrl = imageUrl; 
+        return this;
     }
-    public void SetImageLocalPath(string imageLocalPath)
+    public Product SetImageLocalPath(string imageLocalPath)
     {
         ImageLocalPath = imageLocalPath;
+        return this;
     }
 }
