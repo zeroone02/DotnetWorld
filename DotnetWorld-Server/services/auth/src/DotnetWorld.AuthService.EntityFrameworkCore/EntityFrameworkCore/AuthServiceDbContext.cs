@@ -9,7 +9,7 @@ public class AuthServiceDbContext : IdentityDbContext<ApplicationUser>, IEfCoreD
     public AuthServiceDbContext(DbContextOptions<AuthServiceDbContext> options)
          : base(options)
     {
-
+        
     }
     public DbSet<ApplicationUser> ApplicationUsers { get; set; }
     protected override void OnModelCreating(ModelBuilder modelBuilder)

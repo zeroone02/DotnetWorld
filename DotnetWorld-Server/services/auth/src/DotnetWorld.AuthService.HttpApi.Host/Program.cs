@@ -17,11 +17,9 @@ public class Program
             options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
         });
 
-        //Внедряем в DI Container UserManager и RoleManager
         builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
             .AddEntityFrameworkStores<AuthServiceDbContext>().AddDefaultTokenProviders();
 
-        //Записываем в класс JwtOptions данные из appsettings.json ("ApiSettings:JwtOptions")
         builder.Services.Configure<JwtOptions>(builder.Configuration
             .GetSection("ApiSettings:JwtOptions"));
 

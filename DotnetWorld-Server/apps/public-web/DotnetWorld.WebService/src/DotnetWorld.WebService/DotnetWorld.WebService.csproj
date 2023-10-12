@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\DotnetWorld.WebService.Application.Contracts\DotnetWorld.WebService.Application.Contracts.csproj" />
     <ProjectReference Include="..\DotnetWorld.WebService.Application\DotnetWorld.WebService.Application.csproj" />
     <ProjectReference Include="..\DotnetWorld.WebService.Domain\DotnetWorld.WebService.Domain.csproj" />

@@ -1,11 +1,13 @@
 ﻿using DotnetWorld.CouponService.Application.Contracts;
 using DotnetWorld.DDD;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DotnetWorld.CouponService.HttpApi;
 
 [Route("api/coupon")]
 [ApiController]
+[Authorize(Roles = "ADMIN")]
 public class CouponController : ControllerBase
 {
     private readonly ICouponService _couponService;
