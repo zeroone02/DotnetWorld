@@ -1,12 +1,10 @@
-﻿
-using DotnetWorld.ProductService.Domain;
+﻿using DotnetWorld.DDD.Application.Contracts;
 
 namespace DotnetWorld.ProductService.Application.Contracts;
-public interface IProductService
+public interface IProductService :
+     ICrudAppService<ProductDto, Guid, CreateProductDto, UpdateProductDto>
 {
-    public Task<IEnumerable<ProductDto>> GetListAsync();
-    public Task<ProductDto> GetAsync(Guid id);
-    public Task<Product> AddAsync(ProductDto ProductDto);
-    public Task<Product> DeleteAsync(Guid id);
-    public Task<ProductDto> UpdateAsync(ProductDto ProductDto);
+    public Task<ProductDto> CreateProductAsync(CreateProductDto input, string inputBaseUrl);
+    public Task<ProductDto> UpdateProductAsync(UpdateProductDto input, string inputBaseUrl);
+
 }

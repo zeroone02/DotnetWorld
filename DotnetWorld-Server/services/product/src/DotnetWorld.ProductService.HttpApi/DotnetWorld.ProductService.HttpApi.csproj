@@ -13,6 +13,10 @@
 	<ItemGroup>
 		<ProjectReference Include="..\..\common\DotnetWorld.DDD.Application.Contracts\DotnetWorld.DDD.Application.Contracts.csproj" />
 		<ProjectReference Include="..\..\common\DotnetWorld.DDD.Entity\DotnetWorld.DDD.csproj" />
+		<ProjectReference Include="..\DotnetWorld.ProductService.Application.Contracts\DotnetWorld.ProductService.Application.Contracts.csproj" />
+		<ProjectReference Include="..\DotnetWorld.ProductService.Application\DotnetWorld.ProductService.Application.csproj" />
+		<ProjectReference Include="..\DotnetWorld.ProductService.Domain\DotnetWorld.ProductService.Domain.csproj" />
+		<ProjectReference Include="..\DotnetWorld.ProductService.EntityFrameworkCore\DotnetWorld.ProductService.EntityFrameworkCore.csproj" />
 	</ItemGroup>
 
 </Project>

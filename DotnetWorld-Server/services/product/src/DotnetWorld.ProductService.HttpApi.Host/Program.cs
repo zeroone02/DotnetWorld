@@ -42,7 +42,6 @@ public class Program
     {
         ConfigureEntityFrameworkCore(services);
         ConfigureApplicationServices(services);
-        ConfigureAuthentication(services);
 
         services.AddControllers();
         services.AddEndpointsApiExplorer();
@@ -71,9 +70,7 @@ public class Program
     });
         });
     }
-    private static void ConfigureAuthentication(IServiceCollection services)
-    {
-    }
+  
     private static void ConfigureApplicationServices(IServiceCollection services)
     {
         services.AddTransient<IProductService, ProductService>();

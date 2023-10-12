@@ -7,9 +7,13 @@
   </PropertyGroup>
 
 	<ItemGroup>
+		<PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.10" />
 		<PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.5" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.9" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.9"></PackageReference>
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.9"></PackageReference>
 		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
-		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.9" />
 	</ItemGroup>
 	<ItemGroup>
 		<ProjectReference Include="..\..\common\DotnetWorld.DDD.Application.Contracts\DotnetWorld.DDD.Application.Contracts.csproj" />
@@ -18,5 +22,8 @@
 		<ProjectReference Include="..\DotnetWorld.ProductService.Domain\DotnetWorld.ProductService.Domain.csproj" />
 		<ProjectReference Include="..\DotnetWorld.ProductService.EntityFrameworkCore\DotnetWorld.ProductService.EntityFrameworkCore.csproj" />
 		<ProjectReference Include="..\DotnetWorld.ProductService.HttpApi\DotnetWorld.ProductService.HttpApi.csproj" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="wwwroot\ProductImages\" />
 	</ItemGroup>
 </Project>
