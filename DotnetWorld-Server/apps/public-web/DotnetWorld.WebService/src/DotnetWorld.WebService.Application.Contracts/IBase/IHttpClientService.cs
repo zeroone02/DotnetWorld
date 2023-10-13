@@ -4,5 +4,5 @@ using DotnetWorld.WebService.Application.Contracts;
 namespace DotnetWorld.WebService.Application.Contracts;
 public interface IHttpClientService
 {
-    Task<ResponseDto?> SendAsync(RequestDto requestDto);
+    Task<ResponseDto?> SendAsync(RequestDto requestDto, bool withBearer = true);
 }

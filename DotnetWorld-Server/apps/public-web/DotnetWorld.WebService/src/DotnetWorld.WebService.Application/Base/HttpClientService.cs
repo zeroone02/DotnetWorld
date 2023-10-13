@@ -1,7 +1,10 @@
 ﻿using DotnetWorld.DDD;
 using DotnetWorld.WebService.Application.Contracts;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.Internal;
 using Newtonsoft.Json;
 using System.Net;
+using System.Net.Mime;
 using System.Text;
 using static DotnetWorld.WebService.Domain.SD;
 
@@ -14,30 +17,64 @@ namespace DotnetWorld.WebService.Application;
 /// <returns></returns>
 public class HttpClientService : IHttpClientService
 {
-    //используется для создания экземпляра HttpClient.
     private readonly IHttpClientFactory _httpClientFactory;
-    public HttpClientService(IHttpClientFactory httpClientFactory)
+    private readonly ITokenProvider _tokenProvider;
+    public HttpClientService(IHttpClientFactory httpClientFactory, ITokenProvider tokenProvider)
     {
         _httpClientFactory = httpClientFactory;
+        _tokenProvider = tokenProvider;
     }
-    public async Task<ResponseDto?> SendAsync(RequestDto requestDto)
+    public async Task<ResponseDto?> SendAsync(RequestDto requestDto, bool withBearer = true)
     {
         try
         {
-            //создается экземпляр HttpClient с использованием _httpClientFactory.CreateClient("DotnetWorld").
-            //Это позволяет получить экземпляр HttpClient из фабрики, используя имя "DotnetWorld".
-            HttpClient client = _httpClientFactory.CreateClient("DotnetWorld");
+            HttpClient client = _httpClientFactory.CreateClient("eShop");
             HttpRequestMessage message = new();
-            //Обозначаем формат данных ( в данном случае "application/json")
-            message.Headers.Add("Accept", "application/json");
-            //todo token
-            message.RequestUri = new Uri(requestDto.Url);
-            if (requestDto.Data != null)
+            //if (requestDto.ContentType == ContentType.MultipartFormData)
+            //{
+            //    message.Headers.Add("Accept", "*/*");
+            //}
+            //else
+            //{
+                message.Headers.Add("Accept", "application/json");
+            //}
+            if (withBearer)
             {
-                message.Content = new StringContent(JsonConvert.
-                    SerializeObject(requestDto.Data),
-                    Encoding.UTF8, "application/json");
+                var token = _tokenProvider.GetToken();
+                message.Headers.Add("Authorization", $"Bearer {token}");
             }
+
+            message.RequestUri = new Uri(requestDto.Url);
+
+            //if (requestDto.ContentType == ContentType.MultipartFormData)
+            //{
+            //    var content = new MultipartFormDataContent();
+
+            //    foreach (var prop in requestDto.Data.GetType().GetProperties())
+            //    {
+            //        var value = prop.GetValue(requestDto.Data);
+            //        if (value is FormFile)
+            //        {
+            //            var file = (FormFile)value;
+            //            if (file != null)
+            //            {
+            //                content.Add(new StreamContent(file.OpenReadStream()), prop.Name, file.FileName);
+            //            }
+            //        }
+            //        else
+            //        {
+            //            content.Add(new StringContent(value == null ? "" : value.ToString()), prop.Name);
+            //        }
+            //    }
+            //    message.Content = content;
+            //}
+            //else
+            //{
+                if (requestDto.Data != null)
+                {
+                    message.Content = new StringContent(JsonConvert.SerializeObject(requestDto.Data), Encoding.UTF8, "application/json");
+                }
+            //}
 
             switch (requestDto.ApiType)
             {
@@ -68,9 +105,6 @@ public class HttpClientService : IHttpClientService
                 case HttpStatusCode.InternalServerError:
                     return new() { IsSuccess = false, Message = "Internal Server Error" };
                 default:
-                    //Метод ReadAsStringAsync преобразует содержимое ответа в строку.
-                    //если сервер возвращает данные в формате JSON,
-                    //мы можем использовать этот метод для получения JSON-строки из ответа и затем десериализовать ее в объекты в коде.
                     var apiContent = await apiResponse.Content.ReadAsStringAsync();
                     var apiResponseDto = JsonConvert.DeserializeObject<ResponseDto>(apiContent);
                     return apiResponseDto;
