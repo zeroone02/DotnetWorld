@@ -1,5 +1,4 @@
-﻿using DotnetWorld.WebService.Domain;
-using static DotnetWorld.WebService.Domain.SD;
+﻿using static DotnetWorld.WebService.Domain.SD;
 
 namespace DotnetWorld.WebService.Application.Contracts;
 public class RequestDto
@@ -8,4 +7,6 @@ public class RequestDto
     public string Url { get; set; }
     public object Data { get; set; }
     public string AccessToken { get; set; }
+
+    public ContentType ContentType { get; set; } = ContentType.Json;
 }

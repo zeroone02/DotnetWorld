@@ -7,7 +7,7 @@ namespace DotnetWorld.ProductService.HttpApi.Host.Controllers;
 
 [Route("api/product")]
 [ApiController]
-[Authorize(Roles = "ADMIN")]
+[Authorize]
 public class ProductController : ControllerBase
 {
     private readonly IProductService _productService;

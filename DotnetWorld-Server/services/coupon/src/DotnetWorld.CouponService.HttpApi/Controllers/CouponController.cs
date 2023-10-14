@@ -7,7 +7,7 @@ namespace DotnetWorld.CouponService.HttpApi;
 
 [Route("api/coupon")]
 [ApiController]
-[Authorize(Roles = "ADMIN")]
+[Authorize]
 public class CouponController : ControllerBase
 {
     private readonly ICouponService _couponService;
