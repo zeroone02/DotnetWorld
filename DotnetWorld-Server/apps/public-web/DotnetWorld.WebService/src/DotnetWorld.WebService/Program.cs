@@ -1,3 +1,5 @@
+using DotnetWorld.Web.Application;
+using DotnetWorld.Web.Application.Contracts;
 using DotnetWorld.WebService.Application;
 using DotnetWorld.WebService.Application.Contracts;
 using DotnetWorld.WebService.Domain;
@@ -12,7 +14,7 @@ public class Program
 
         SD.CouponAPIBase = builder.Configuration["ServiceUrls:CouponAPI"];
         SD.AuthAPIBase = builder.Configuration["ServiceUrls:AuthAPI"];
-
+        SD.ProductAPIBase = builder.Configuration["ServiceUrls:ProductAPI"];
         ConfigureServices(builder.Services);
 
         #region œŒﬂ—Õ≈Õ»≈
@@ -76,9 +78,11 @@ public class Program
         services.AddHttpContextAccessor();
         services.AddHttpClient();
         //HttpClients
+        services.AddHttpClient<IProductService, ProductService>();
         services.AddHttpClient<ICouponService, CouponService>();
         services.AddHttpClient<IAuthService, AuthService>();
         //Services
+        services.AddTransient<IProductService, ProductService>();
         services.AddTransient<IHttpClientService, HttpClientService>();
         services.AddTransient<ICouponService, CouponService>();
         services.AddTransient<IAuthService, AuthService>();
