@@ -15,6 +15,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotnetWorld.ShoppingCartSer
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotnetWorld.ShoppingCartService.HttpApi.Host", "src\DotnetWorld.ShoppingCartService.HttpApi.Host\DotnetWorld.ShoppingCartService.HttpApi.Host.csproj", "{89DD5E06-49A1-4789-B76B-AB42FC37E422}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotnetWorld.ShoppingCartService.HttpApi", "src\DotnetWorld.ShoppingCartService.HttpApi\DotnetWorld.ShoppingCartService.HttpApi.csproj", "{7700CB1B-559C-4502-999E-FC6783534E44}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "common", "common", "{6BBCCB2E-8E5D-4C04-8DEC-B245B4BE8D8C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotnetWorld.DDD.Application.Contracts", "..\product\common\DotnetWorld.DDD.Application.Contracts\DotnetWorld.DDD.Application.Contracts.csproj", "{0B1DF265-7988-4610-BEAD-02F6E27C7AD2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotnetWorld.DDD", "..\product\common\DotnetWorld.DDD.Entity\DotnetWorld.DDD.csproj", "{04709403-4880-44DD-A3CC-B7D25E0AE65E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +49,18 @@ Global
 		{89DD5E06-49A1-4789-B76B-AB42FC37E422}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{89DD5E06-49A1-4789-B76B-AB42FC37E422}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{89DD5E06-49A1-4789-B76B-AB42FC37E422}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7700CB1B-559C-4502-999E-FC6783534E44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7700CB1B-559C-4502-999E-FC6783534E44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7700CB1B-559C-4502-999E-FC6783534E44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7700CB1B-559C-4502-999E-FC6783534E44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B1DF265-7988-4610-BEAD-02F6E27C7AD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B1DF265-7988-4610-BEAD-02F6E27C7AD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B1DF265-7988-4610-BEAD-02F6E27C7AD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B1DF265-7988-4610-BEAD-02F6E27C7AD2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04709403-4880-44DD-A3CC-B7D25E0AE65E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04709403-4880-44DD-A3CC-B7D25E0AE65E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04709403-4880-44DD-A3CC-B7D25E0AE65E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04709403-4880-44DD-A3CC-B7D25E0AE65E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -51,6 +71,9 @@ Global
 		{37A3C5A8-A5D1-402D-BD52-2471328FE9E8} = {8A14EAEB-0F93-47FE-B15F-7AE180F08766}
 		{418AA8E9-403C-484F-907F-484ACD525C9E} = {8A14EAEB-0F93-47FE-B15F-7AE180F08766}
 		{89DD5E06-49A1-4789-B76B-AB42FC37E422} = {8A14EAEB-0F93-47FE-B15F-7AE180F08766}
+		{7700CB1B-559C-4502-999E-FC6783534E44} = {8A14EAEB-0F93-47FE-B15F-7AE180F08766}
+		{0B1DF265-7988-4610-BEAD-02F6E27C7AD2} = {6BBCCB2E-8E5D-4C04-8DEC-B245B4BE8D8C}
+		{04709403-4880-44DD-A3CC-B7D25E0AE65E} = {6BBCCB2E-8E5D-4C04-8DEC-B245B4BE8D8C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BB24F4E8-659D-4644-A894-6051D7A9661E}
