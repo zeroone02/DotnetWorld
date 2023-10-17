@@ -8,10 +8,10 @@ public class DotnetWorldApplicationObjectMapper : Profile
 {
     public DotnetWorldApplicationObjectMapper()
     {
-        MapCoupons();
+        MapProducts();
     }
 
-    private void MapCoupons()
+    private void MapProducts()
     {
         CreateMap<Product, ProductDto>().ReverseMap();
         CreateMap<Product, CreateProductDto>().ReverseMap()
