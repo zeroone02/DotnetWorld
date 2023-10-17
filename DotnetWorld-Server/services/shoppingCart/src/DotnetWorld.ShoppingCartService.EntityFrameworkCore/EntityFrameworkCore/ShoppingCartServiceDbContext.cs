@@ -1,12 +1,16 @@
-﻿namespace DotnetWorld.ShoppingCartService.EntityFrameworkCore;
-public class ShoppingCartServiceDbContext /*: DbContext, IEfCoreDbContext*/
-{
-   //public ShoppingCartServiceDbContext(DbContextOptions<ShoppingCartServiceDbContext> options )
-   //     : base(options)
-   // {
+﻿using DotnetWorld.DDD;
+using DotnetWorld.ShoppingCartService.Domain;
+using Microsoft.EntityFrameworkCore;
 
-   // }
-   // public DbSet<CartHeader> CartHeaders { get; set; }
-   // public DbSet<CartDetails> CartDetails { get; set; }
-   
+namespace DotnetWorld.ShoppingCartService.EntityFrameworkCore;
+public class ShoppingCartServiceDbContext : DbContext, IEfCoreDbContext
+{
+    public ShoppingCartServiceDbContext(DbContextOptions<ShoppingCartServiceDbContext> options)
+         : base(options)
+    {
+
+    }
+    public DbSet<UserCart> UserCarts { get; set; }
+    public DbSet<CartDetail> CartDetails { get; set; }
+
 }

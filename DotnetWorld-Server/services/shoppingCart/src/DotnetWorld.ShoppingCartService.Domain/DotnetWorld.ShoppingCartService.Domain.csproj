@@ -15,5 +15,6 @@
 	</ItemGroup>
 	<ItemGroup>
 	  <ProjectReference Include="..\..\..\product\common\DotnetWorld.DDD.Entity\DotnetWorld.DDD.csproj" />
+	  <ProjectReference Include="..\DotnetWorld.ShoppingCartService.Application.Contracts\DotnetWorld.ShoppingCartService.Application.Contracts.csproj" />
 	</ItemGroup>
 </Project>

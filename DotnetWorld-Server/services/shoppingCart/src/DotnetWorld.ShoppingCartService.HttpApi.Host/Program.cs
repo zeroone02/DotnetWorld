@@ -1,4 +1,8 @@
+using DotnetWorld.DDD;
+using DotnetWorld.ShoppingCartService.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using DotnetWorld.ShoppingCartService.Domain;
 
 public class Program
 {
@@ -6,13 +10,13 @@ public class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
-        //builder.Services.AddDbContext<IEfCoreDbContext, CouponServiceDbContext>(options =>
-        //{
-        //    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
-        //});
+        builder.Services.AddDbContext<IEfCoreDbContext, ShoppingCartServiceDbContext>(options =>
+        {
+            options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
+        });
 
         ConfigureServices(builder.Services);
-        //builder.AddAppAuthetication();
+        builder.AddAppAuthetication();
         builder.Services.AddAuthorization();
 
         var app = builder.Build();

@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DotnetWorld.ShoppingCartService.Domain;
-public class CartHeader : AggregateRoot<Guid>
+public class UserCart : AggregateRoot<Guid>
 {
     public string? UserId { get; set; }
     public string? CouponCode { get; set; }

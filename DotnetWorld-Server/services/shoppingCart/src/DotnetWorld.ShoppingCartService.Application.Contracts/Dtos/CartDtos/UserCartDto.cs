@@ -1,7 +1,7 @@
 ﻿using DotnetWorld.DDD.Application.Contracts;
 
 namespace DotnetWorld.ShoppingCartService.Domain;
-public class CartHeaderDto : EntityDto<Guid>
+public class UserCartDto : EntityDto<Guid>
 {
     public string? UserId { get; set; }
     public string? CouponCode { get; set; }
