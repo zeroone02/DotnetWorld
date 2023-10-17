@@ -6,4 +6,14 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DotnetWorld.AuthService.Application.Contracts\DotnetWorld.AuthService.Application.Contracts.csproj" />
+    <ProjectReference Include="..\DotnetWorld.AuthService.Domain\DotnetWorld.AuthService.Domain.csproj" />
+    <ProjectReference Include="..\DotnetWorld.AuthService.EntityFrameworkCore\DotnetWorld.AuthService.EntityFrameworkCore.csproj" />
+  </ItemGroup>
+
 </Project>

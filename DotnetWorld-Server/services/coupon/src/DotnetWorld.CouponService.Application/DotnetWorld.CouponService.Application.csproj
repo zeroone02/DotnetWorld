@@ -6,4 +6,11 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\common\DotnetWorld.DDD.Application.Contracts\DotnetWorld.DDD.Application.Contracts.csproj" />
+    <ProjectReference Include="..\..\common\DotnetWorld.DDD.Entity\DotnetWorld.DDD.csproj" />
+    <ProjectReference Include="..\DotnetWorld.CouponService.Application.Contracts\DotnetWorld.CouponService.Application.Contracts.csproj" />
+    <ProjectReference Include="..\DotnetWorld.CouponService.Domain\DotnetWorld.CouponService.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

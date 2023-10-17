@@ -7,13 +7,21 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotnetWorld.CouponService.H
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{265CFA3B-67E1-45C5-8C6A-FB8B13AD0EA4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotnetWorld.CouponService.Domain", "src\DotnetWorld.CouponService.Domain\DotnetWorld.CouponService.Domain.csproj", "{552165AD-20B9-4DDA-BFC8-34E428ADA77D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotnetWorld.CouponService.Domain", "src\DotnetWorld.CouponService.Domain\DotnetWorld.CouponService.Domain.csproj", "{552165AD-20B9-4DDA-BFC8-34E428ADA77D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotnetWorld.CouponService.Application", "src\DotnetWorld.CouponService.Application\DotnetWorld.CouponService.Application.csproj", "{19AA5AAF-C3A7-4C16-9D15-CD3B3BF541AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotnetWorld.CouponService.Application", "src\DotnetWorld.CouponService.Application\DotnetWorld.CouponService.Application.csproj", "{19AA5AAF-C3A7-4C16-9D15-CD3B3BF541AF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotnetWorld.CouponService.Application.Contracts", "src\DotnetWorld.CouponService.Application.Contracts\DotnetWorld.CouponService.Application.Contracts.csproj", "{0B6B9042-CF8F-4F22-89A7-9D527C1232FD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotnetWorld.CouponService.Application.Contracts", "src\DotnetWorld.CouponService.Application.Contracts\DotnetWorld.CouponService.Application.Contracts.csproj", "{0B6B9042-CF8F-4F22-89A7-9D527C1232FD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotnetWorld.CouponService.EntityFrameworkCore", "src\DotnetWorld.CouponService.EntityFrameworkCore\DotnetWorld.CouponService.EntityFrameworkCore.csproj", "{A23DF919-EB5F-4F24-9D6F-AB8DFB26BDFB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotnetWorld.CouponService.EntityFrameworkCore", "src\DotnetWorld.CouponService.EntityFrameworkCore\DotnetWorld.CouponService.EntityFrameworkCore.csproj", "{A23DF919-EB5F-4F24-9D6F-AB8DFB26BDFB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "common", "common", "{AD15FAD9-D3B6-4E51-BE38-4C8D83E93D14}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotnetWorld.DDD.Application.Contracts", "common\DotnetWorld.DDD.Application.Contracts\DotnetWorld.DDD.Application.Contracts.csproj", "{013100C1-C0F8-49A1-84B6-123EA99D0255}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotnetWorld.DDD", "common\DotnetWorld.DDD.Entity\DotnetWorld.DDD.csproj", "{4A8FAF00-4D8A-4F1E-90D0-FBDB1A6B6152}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotnetWorld.CouponService.HttpApi", "src\DotnetWorld.CouponService.HttpApi\DotnetWorld.CouponService.HttpApi.csproj", "{1530E1B6-7B60-4876-8B4C-0D7C29DD3EC2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +49,18 @@ Global
 		{A23DF919-EB5F-4F24-9D6F-AB8DFB26BDFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A23DF919-EB5F-4F24-9D6F-AB8DFB26BDFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A23DF919-EB5F-4F24-9D6F-AB8DFB26BDFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{013100C1-C0F8-49A1-84B6-123EA99D0255}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{013100C1-C0F8-49A1-84B6-123EA99D0255}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{013100C1-C0F8-49A1-84B6-123EA99D0255}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{013100C1-C0F8-49A1-84B6-123EA99D0255}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A8FAF00-4D8A-4F1E-90D0-FBDB1A6B6152}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A8FAF00-4D8A-4F1E-90D0-FBDB1A6B6152}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A8FAF00-4D8A-4F1E-90D0-FBDB1A6B6152}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A8FAF00-4D8A-4F1E-90D0-FBDB1A6B6152}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1530E1B6-7B60-4876-8B4C-0D7C29DD3EC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1530E1B6-7B60-4876-8B4C-0D7C29DD3EC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1530E1B6-7B60-4876-8B4C-0D7C29DD3EC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1530E1B6-7B60-4876-8B4C-0D7C29DD3EC2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -51,6 +71,9 @@ Global
 		{19AA5AAF-C3A7-4C16-9D15-CD3B3BF541AF} = {265CFA3B-67E1-45C5-8C6A-FB8B13AD0EA4}
 		{0B6B9042-CF8F-4F22-89A7-9D527C1232FD} = {265CFA3B-67E1-45C5-8C6A-FB8B13AD0EA4}
 		{A23DF919-EB5F-4F24-9D6F-AB8DFB26BDFB} = {265CFA3B-67E1-45C5-8C6A-FB8B13AD0EA4}
+		{013100C1-C0F8-49A1-84B6-123EA99D0255} = {AD15FAD9-D3B6-4E51-BE38-4C8D83E93D14}
+		{4A8FAF00-4D8A-4F1E-90D0-FBDB1A6B6152} = {AD15FAD9-D3B6-4E51-BE38-4C8D83E93D14}
+		{1530E1B6-7B60-4876-8B4C-0D7C29DD3EC2} = {265CFA3B-67E1-45C5-8C6A-FB8B13AD0EA4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A78CF37F-36AC-40D4-BA28-01E5FBFC951C}

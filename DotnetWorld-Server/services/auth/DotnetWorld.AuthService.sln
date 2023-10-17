@@ -15,6 +15,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotnetWorld.AuthService.Ent
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotnetWorld.AuthService.HttpApi.Host", "src\DotnetWorld.AuthService.HttpApi.Host\DotnetWorld.AuthService.HttpApi.Host.csproj", "{3183A08D-8FBD-4224-98DD-026FA59A963E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "common", "common", "{F66302AC-9674-479D-A287-8BF4314D63D8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotnetWorld.DDD.Application.Contracts", "common\DotnetWorld.DDD.Application.Contracts\DotnetWorld.DDD.Application.Contracts.csproj", "{17E36731-978A-4D67-8E91-7465702885BC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotnetWorld.DDD", "common\DotnetWorld.DDD.Entity\DotnetWorld.DDD.csproj", "{07C5B967-0E6E-4D15-AF78-E65633D6A58C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotnetWorld.AuthService.HttpApi", "src\DotnetWorld.AuthService.HttpApi\DotnetWorld.AuthService.HttpApi.csproj", "{A6F2A94A-2D3A-496C-92CB-818820C229F0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +49,18 @@ Global
 		{3183A08D-8FBD-4224-98DD-026FA59A963E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3183A08D-8FBD-4224-98DD-026FA59A963E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3183A08D-8FBD-4224-98DD-026FA59A963E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17E36731-978A-4D67-8E91-7465702885BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17E36731-978A-4D67-8E91-7465702885BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17E36731-978A-4D67-8E91-7465702885BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17E36731-978A-4D67-8E91-7465702885BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07C5B967-0E6E-4D15-AF78-E65633D6A58C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07C5B967-0E6E-4D15-AF78-E65633D6A58C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07C5B967-0E6E-4D15-AF78-E65633D6A58C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07C5B967-0E6E-4D15-AF78-E65633D6A58C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6F2A94A-2D3A-496C-92CB-818820C229F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6F2A94A-2D3A-496C-92CB-818820C229F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6F2A94A-2D3A-496C-92CB-818820C229F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6F2A94A-2D3A-496C-92CB-818820C229F0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -51,6 +71,9 @@ Global
 		{FEF531B4-1B9B-441F-AA6B-86D27C65472A} = {8A14EAEB-0F93-47FE-B15F-7AE180F08766}
 		{6183DD7C-BA56-4C12-A53A-203E398C48E2} = {8A14EAEB-0F93-47FE-B15F-7AE180F08766}
 		{3183A08D-8FBD-4224-98DD-026FA59A963E} = {8A14EAEB-0F93-47FE-B15F-7AE180F08766}
+		{17E36731-978A-4D67-8E91-7465702885BC} = {F66302AC-9674-479D-A287-8BF4314D63D8}
+		{07C5B967-0E6E-4D15-AF78-E65633D6A58C} = {F66302AC-9674-479D-A287-8BF4314D63D8}
+		{A6F2A94A-2D3A-496C-92CB-818820C229F0} = {8A14EAEB-0F93-47FE-B15F-7AE180F08766}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BB24F4E8-659D-4644-A894-6051D7A9661E}

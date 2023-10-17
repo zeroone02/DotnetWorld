@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotnetWorld.ProductService.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotnetWorld.ShoppingCartService.HttpApi.Host", "services\shoppingCart\src\DotnetWorld.ShoppingCartService.HttpApi.Host\DotnetWorld.ShoppingCartService.HttpApi.Host.csproj", "{CCFDA862-CC9E-460E-8028-A2919A994281}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotnetWorld.WebService", "apps\public-web\DotnetWorld.WebService\src\DotnetWorld.WebService\DotnetWorld.WebService.csproj", "{2FA3ED42-AF79-40E5-AE45-917246020119}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{CCFDA862-CC9E-460E-8028-A2919A994281}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CCFDA862-CC9E-460E-8028-A2919A994281}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CCFDA862-CC9E-460E-8028-A2919A994281}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FA3ED42-AF79-40E5-AE45-917246020119}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FA3ED42-AF79-40E5-AE45-917246020119}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FA3ED42-AF79-40E5-AE45-917246020119}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FA3ED42-AF79-40E5-AE45-917246020119}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,6 +52,7 @@ Global
 		{9BB76835-D8DD-4257-A9FB-758EBC26F9F5} = {C3C5808F-F189-49D7-9E04-DC3C413EFB96}
 		{613B3BFE-371D-43D8-947B-57A7771EC96C} = {C3C5808F-F189-49D7-9E04-DC3C413EFB96}
 		{CCFDA862-CC9E-460E-8028-A2919A994281} = {C3C5808F-F189-49D7-9E04-DC3C413EFB96}
+		{2FA3ED42-AF79-40E5-AE45-917246020119} = {C3C5808F-F189-49D7-9E04-DC3C413EFB96}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AEED540D-6A3B-4A05-8338-9ECB10B4B066}

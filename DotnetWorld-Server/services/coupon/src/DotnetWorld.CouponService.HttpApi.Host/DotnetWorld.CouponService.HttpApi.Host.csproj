@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
@@ -9,6 +9,13 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.5" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+	  <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.9" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DotnetWorld.CouponService.Application\DotnetWorld.CouponService.Application.csproj" />
+    <ProjectReference Include="..\DotnetWorld.CouponService.EntityFrameworkCore\DotnetWorld.CouponService.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\DotnetWorld.CouponService.HttpApi\DotnetWorld.CouponService.HttpApi.csproj" />
   </ItemGroup>
 
 </Project>
