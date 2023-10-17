@@ -18,6 +18,7 @@
     <ProjectReference Include="..\..\..\product\common\DotnetWorld.DDD.Application.Contracts\DotnetWorld.DDD.Application.Contracts.csproj" />
     <ProjectReference Include="..\DotnetWorld.ShoppingCartService.Application.Contracts\DotnetWorld.ShoppingCartService.Application.Contracts.csproj" />
     <ProjectReference Include="..\DotnetWorld.ShoppingCartService.Domain\DotnetWorld.ShoppingCartService.Domain.csproj" />
+    <ProjectReference Include="..\DotnetWorld.ShoppingCartService.EntityFrameworkCore\DotnetWorld.ShoppingCartService.EntityFrameworkCore.csproj" />
   </ItemGroup>
 
 </Project>

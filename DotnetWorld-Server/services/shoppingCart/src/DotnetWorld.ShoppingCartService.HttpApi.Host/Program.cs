@@ -6,6 +6,7 @@ using DotnetWorld.ShoppingCartService.Domain;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using DotnetWorld.ShoppingCartService.Application.Contracts;
 using DotnetWorld.ShoppingCartService.Application;
+using AutoMapper;
 
 public class Program
 {
@@ -75,13 +76,13 @@ public class Program
         services.AddTransient<ICartService, CartService>();
         services.AddTransient<UnitOfWork>();
 
-        //var mapperConfig = new MapperConfiguration(mc =>
-        //{
-        //    mc.AddProfile(new DotnetWorldApplicationObjectMapper());
-        //});
+        var mapperConfig = new MapperConfiguration(mc =>
+        {
+            mc.AddProfile(new DotnetWorldApplicationObjectMapper());
+        });
 
-        //IMapper mapper = mapperConfig.CreateMapper();
-        //services.AddSingleton(mapper);
+        IMapper mapper = mapperConfig.CreateMapper();
+        services.AddSingleton(mapper);
     }
     private static void ConfigureEntityFrameworkCore(IServiceCollection services)
     {
