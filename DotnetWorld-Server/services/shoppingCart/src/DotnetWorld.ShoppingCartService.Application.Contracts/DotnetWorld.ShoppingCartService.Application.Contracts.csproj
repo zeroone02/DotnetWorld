@@ -9,9 +9,6 @@
 		<PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
 	</ItemGroup>
   <ItemGroup>
-    <Folder Include="Interfaces\" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\..\..\product\common\DotnetWorld.DDD.Application.Contracts\DotnetWorld.DDD.Application.Contracts.csproj" />
     <ProjectReference Include="..\..\..\product\common\DotnetWorld.DDD.Entity\DotnetWorld.DDD.csproj" />
   </ItemGroup>

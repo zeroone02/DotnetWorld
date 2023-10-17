@@ -3,6 +3,9 @@ using DotnetWorld.ShoppingCartService.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using DotnetWorld.ShoppingCartService.Domain;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using DotnetWorld.ShoppingCartService.Application.Contracts;
+using DotnetWorld.ShoppingCartService.Application;
 
 public class Program
 {
@@ -41,36 +44,36 @@ public class Program
 
         services.AddControllers();
         services.AddEndpointsApiExplorer();
-    //    services.AddSwaggerGen(option =>
-    //    {
-    //        option.AddSecurityDefinition(name: JwtBearerDefaults.AuthenticationScheme, securityScheme: new OpenApiSecurityScheme
-    //        {
-    //            Name = "Authorization",
-    //            Description = "Enter the Bearer Authorization string as following: `Bearer Generated-JWT-Token`",
-    //            In = ParameterLocation.Header,
-    //            Type = SecuritySchemeType.ApiKey,
-    //            Scheme = "Bearer"
-    //        });
-    //        option.AddSecurityRequirement(new OpenApiSecurityRequirement
-    //{
-    //        {
-    //            new OpenApiSecurityScheme
-    //            {
-    //                Reference= new OpenApiReference
-    //                {
-    //                    Type=ReferenceType.SecurityScheme,
-    //                    Id=JwtBearerDefaults.AuthenticationScheme
-    //                }
-    //            }, new string[]{}
-    //        }
-    //});
-    //    });
+        services.AddSwaggerGen(option =>
+        {
+            option.AddSecurityDefinition(name: JwtBearerDefaults.AuthenticationScheme, securityScheme: new OpenApiSecurityScheme
+            {
+                Name = "Authorization",
+                Description = "Enter the Bearer Authorization string as following: `Bearer Generated-JWT-Token`",
+                In = ParameterLocation.Header,
+                Type = SecuritySchemeType.ApiKey,
+                Scheme = "Bearer"
+            });
+            option.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+            {
+                new OpenApiSecurityScheme
+                {
+                    Reference= new OpenApiReference
+                    {
+                        Type=ReferenceType.SecurityScheme,
+                        Id=JwtBearerDefaults.AuthenticationScheme
+                    }
+                }, new string[]{}
+            }
+    });
+        });
     }
 
     private static void ConfigureApplicationServices(IServiceCollection services)
     {
-        //services.AddTransient<ICouponService, CouponService>();
-        //services.AddTransient<UnitOfWork>();
+        services.AddTransient<ICartService, CartService>();
+        services.AddTransient<UnitOfWork>();
 
         //var mapperConfig = new MapperConfiguration(mc =>
         //{
@@ -82,6 +85,6 @@ public class Program
     }
     private static void ConfigureEntityFrameworkCore(IServiceCollection services)
     {
-        //services.AddTransient<IRepository<Coupon, Guid>, Repository<Coupon, Guid>>();
+        services.AddTransient<IRepository<UserCart, Guid>, Repository<UserCart, Guid>>();
     }
 }

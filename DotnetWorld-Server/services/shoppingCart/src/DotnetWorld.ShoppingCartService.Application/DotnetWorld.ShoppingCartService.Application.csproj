@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Services\" />
+    <Folder Include="Services\HttpServices\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -16,6 +16,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\product\common\DotnetWorld.DDD.Application.Contracts\DotnetWorld.DDD.Application.Contracts.csproj" />
+    <ProjectReference Include="..\DotnetWorld.ShoppingCartService.Application.Contracts\DotnetWorld.ShoppingCartService.Application.Contracts.csproj" />
+    <ProjectReference Include="..\DotnetWorld.ShoppingCartService.Domain\DotnetWorld.ShoppingCartService.Domain.csproj" />
   </ItemGroup>
 
 </Project>

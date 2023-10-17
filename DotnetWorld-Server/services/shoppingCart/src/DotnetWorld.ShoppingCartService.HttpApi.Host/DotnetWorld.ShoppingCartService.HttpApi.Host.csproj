@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DotnetWorld.ShoppingCartService.Application\DotnetWorld.ShoppingCartService.Application.csproj" />
     <ProjectReference Include="..\DotnetWorld.ShoppingCartService.Domain\DotnetWorld.ShoppingCartService.Domain.csproj" />
     <ProjectReference Include="..\DotnetWorld.ShoppingCartService.EntityFrameworkCore\DotnetWorld.ShoppingCartService.EntityFrameworkCore.csproj" />
   </ItemGroup>
