@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using DotnetWorld.DDD;
+using DotnetWorld.ShoppingCartService.Domain;
 
 namespace DotnetWorld.ShoppingCartService.Application;
 public class DotnetWorldApplicationObjectMapper : Profile
@@ -11,12 +12,10 @@ public class DotnetWorldApplicationObjectMapper : Profile
 
     private void MapCartItems()
     {
-        //CreateMap<Coupon, CouponDto>().ReverseMap();
-        //CreateMap<Coupon, CreateCouponDto>().ReverseMap()
-        //    .Ignore(x => x.Id);
-
-        //CreateMap<Coupon, UpdateCouponDto>().ReverseMap()
-        //    .Ignore(x => x.Id);
+        CreateMap<UserCart, CartDto>().ReverseMap();
+        CreateMap<CartDetail, CartDto>().ReverseMap();
+        CreateMap<UserCartDto, CartDto>().ReverseMap();
+        CreateMap<CartDetailDto, CartDto>().ReverseMap();
     }
    
 }
