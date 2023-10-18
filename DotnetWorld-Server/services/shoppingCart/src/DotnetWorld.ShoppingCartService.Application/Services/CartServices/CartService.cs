@@ -12,11 +12,15 @@ public class CartService : ICartService
     private readonly UnitOfWork _unitOfWork;
     private readonly IMapper ObjectMapper;
     private readonly ShoppingCartServiceDbContext _db;
-    public CartService(UnitOfWork unitOfWork, IMapper objectMapper, ShoppingCartServiceDbContext db)
+    private readonly IProductService _productService;
+    private readonly ICouponService _couponService;
+    public CartService(UnitOfWork unitOfWork, IMapper objectMapper, ShoppingCartServiceDbContext db, IProductService productService, ICouponService couponService)
     {
         _unitOfWork = unitOfWork;
         ObjectMapper = objectMapper;
         _db = db;
+        _productService = productService;
+        _couponService = couponService;
     }
     public async Task<bool> ApplyCoupon(CartDto cartDto)
     {
