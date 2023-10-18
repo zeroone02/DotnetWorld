@@ -14,6 +14,8 @@ public class DotnetWorldApplicationObjectMapper : Profile
     {
         CreateMap<UserCart, CartDto>().ReverseMap();
         CreateMap<CartDetail, CartDto>().ReverseMap();
+        CreateMap<UserCartDto, CartDto>().ReverseMap();
+        CreateMap<CartDetailDto, CartDto>().ReverseMap();
     }
    
 }

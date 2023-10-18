@@ -4,7 +4,6 @@ using DotnetWorld.ShoppingCartService.Application.Contracts;
 using DotnetWorld.ShoppingCartService.Domain;
 using DotnetWorld.ShoppingCartService.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using System.Reflection.PortableExecutable;
 
 namespace DotnetWorld.ShoppingCartService.Application;
 public class CartService : ICartService
@@ -75,7 +74,48 @@ public class CartService : ICartService
     }
     public async Task<CartDto> GetCart(string userId)
     {
-        throw new NotImplementedException();
+        CartDto cartDto = new CartDto()
+        {
+            UserCart = ObjectMapper.Map<UserCartDto>(_db.UserCarts.First(cart => cart.UserId == userId)),
+        };
+
+        cartDto.CartDetails = ObjectMapper.Map<IEnumerable<CartDetailDto>>(_db.CartDetails
+                .Where(cartDetail => cartDetail.UserCartId == cartDto.UserCart.Id));
+
+        IEnumerable<ProductDto> productDtos = await _productService.GetProducts();
+
+        foreach (var cartDetail in cartDto.CartDetails)
+        {
+            cartDetail.Product = productDtos.FirstOrDefault(product => product.Id == cartDetail.ProductId);
+            if (cartDetail.Product == null)
+            {
+                await RemoveCart(cartDetail.Id);
+            }
+        }
+
+        CartDto newCart = new()
+        {
+            UserCart = ObjectMapper.Map<UserCartDto>(_db.UserCarts.First(u => u.UserId == userId))
+        };
+
+        newCart.CartDetails = ObjectMapper.Map<IEnumerable<CartDetailDto>>(_db.CartDetails
+               .Where(cartdetail => cartdetail.UserCartId == newCart.UserCart.Id));
+        foreach (var newCartDetail in newCart.CartDetails)
+        {
+            newCartDetail.Product = productDtos.FirstOrDefault(u => u.Id == newCartDetail.ProductId);
+            newCart.UserCart.CartTotal += (newCartDetail.Count * newCartDetail.Product.Price);
+        }
+
+        if (!string.IsNullOrEmpty(newCart.UserCart.CouponCode))
+        {
+            CouponDto coupon = await _couponService.GetCoupon(newCart.UserCart.CouponCode);
+            if (coupon != null && newCart.UserCart.CartTotal > coupon.MinAmount)
+            {
+                newCart.UserCart.CartTotal -= coupon.DiscountAmount;
+                newCart.UserCart.Discount = coupon.DiscountAmount;
+            }
+        }
+        return newCart;
     }
 
     public async Task<bool> RemoveCart(Guid cartDetailId)
