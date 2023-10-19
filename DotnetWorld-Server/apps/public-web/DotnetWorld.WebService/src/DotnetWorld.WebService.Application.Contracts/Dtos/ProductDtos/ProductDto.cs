@@ -1,8 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Http;
 using DotnetWorld.DDD.Application.Contracts;
+using DotnetWorld.Web.Domain;
 
-namespace DotnetWorld.Web.Domain;
+namespace DotnetWorld.WebService.Application.Contracts;
 
 public class ProductDto : EntityDto<Guid>
 {
