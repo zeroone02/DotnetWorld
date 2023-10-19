@@ -17,21 +17,6 @@ public class Program
         SD.CartAPIBase = builder.Configuration["ServiceUrls:CartAPI"];
         ConfigureServices(builder.Services);
 
-        #region ПОЯСНЕНИЕ
-        //Схема аутентификации позволяет выбирать определенный обработчик аутентификации.
-
-        //Eсли используется схема "Bearer", то это значит,
-        //что для аутентификации будет использоваться jwt-токен,
-        //а в качестве обработчика аутентификации будет
-        //применяться класс Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.Стоит отметить,
-        //что для аутентификации с помощью jwt - токенов необходимо добавить в проект
-        //через Nuget пакет Microsoft.AspNetCore.Authentication.JwtBearer
-
-        //Например, для аутентификации с помощью куки передается схема "Cookies".
-        //Соответственно для аутентификации пользователя будет выбираться встроенный обработчик
-        //аутентификации -класс Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler,
-        //который на основе полученных в запросе cookie выполняет аутентификацию.
-        #endregion
         builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>
     {
@@ -52,12 +37,7 @@ public class Program
         app.UseStaticFiles();
 
         app.UseRouting();
-        //взаимодействуют с HttpContext.User,
-        //устанавливая текущего пользователя и применяя политики авторизации.
-
-        //Для выполнения аутентификации этот компонент использует сервисы аутентификации,
-        //в частности, сервис IAuthenticationService,
-        //которые регистрируются в приложении с помощью метода AddAuthentication():
+       
         app.UseAuthentication();
         app.UseAuthorization();
 
