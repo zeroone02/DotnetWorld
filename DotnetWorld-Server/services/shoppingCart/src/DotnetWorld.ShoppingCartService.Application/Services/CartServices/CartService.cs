@@ -56,7 +56,6 @@ public class CartService : ICartService
             if (cartDetail == null)
             {
                 cartDto.CartDetails.First().UserCartId = userCart.Id;
-                //_db.CartDetails.Add(ObjectMapper.Map<CartDetail>(cartDto.CartDetails.First()));
                 _db.CartDetails.Add(ObjectMapper.Map<CartDetailDto, CartDetail>(cartDto.CartDetails.First()));
                 await _unitOfWork.SaveChangesAsync();
             }

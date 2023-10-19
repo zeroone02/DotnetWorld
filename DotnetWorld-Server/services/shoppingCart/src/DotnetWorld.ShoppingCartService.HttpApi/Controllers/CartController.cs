@@ -4,6 +4,8 @@ using DotnetWorld.ShoppingCartService.Domain;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DotnetWorld.ShoppingCartService.HttpApi;
+[Route("api/cart")]
+[ApiController]
 public class CartController : ControllerBase
 {
     private readonly ResponseDto _response;
