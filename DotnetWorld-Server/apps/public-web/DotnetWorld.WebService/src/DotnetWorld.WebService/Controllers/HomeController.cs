@@ -1,6 +1,6 @@
 ﻿using DotnetWorld.DDD;
 using DotnetWorld.Web.Application.Contracts;
-using DotnetWorld.Web.Domain;
+using DotnetWorld.WebService.Application.Contracts;
 using DotnetWorld.WebService.Domain;
 using DotnetWorld.WebService.Models;
 using Microsoft.AspNetCore.Authorization;

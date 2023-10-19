@@ -4,7 +4,6 @@ using DotnetWorld.WebService.Application;
 using DotnetWorld.WebService.Application.Contracts;
 using DotnetWorld.WebService.Domain;
 using Microsoft.AspNetCore.Authentication.Cookies;
-using System.Net;
 
 public class Program
 {
@@ -15,6 +14,7 @@ public class Program
         SD.CouponAPIBase = builder.Configuration["ServiceUrls:CouponAPI"];
         SD.AuthAPIBase = builder.Configuration["ServiceUrls:AuthAPI"];
         SD.ProductAPIBase = builder.Configuration["ServiceUrls:ProductAPI"];
+        SD.CartAPIBase = builder.Configuration["ServiceUrls:CartAPI"];
         ConfigureServices(builder.Services);
 
         #region œŒﬂ—Õ≈Õ»≈
@@ -70,7 +70,6 @@ public class Program
     private static void ConfigureServices(IServiceCollection services)
     {
         ConfigureApplicationServices(services);
-        ConfigureAuthentication(services);
     }
     private static void ConfigureApplicationServices(IServiceCollection services)
     {
@@ -81,15 +80,15 @@ public class Program
         services.AddHttpClient<IProductService, ProductService>();
         services.AddHttpClient<ICouponService, CouponService>();
         services.AddHttpClient<IAuthService, AuthService>();
+        services.AddHttpClient<ICartService, CartService>();
         //Services
         services.AddTransient<IProductService, ProductService>();
         services.AddTransient<IHttpClientService, HttpClientService>();
         services.AddTransient<ICouponService, CouponService>();
         services.AddTransient<IAuthService, AuthService>();
+        services.AddTransient<ICartService, CartService>();
         services.AddTransient<ITokenProvider, TokenProvider>();
 
     }
-    private static void ConfigureAuthentication(IServiceCollection services)
-    {
-    }
+   
 }
