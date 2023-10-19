@@ -7,7 +7,6 @@ namespace DotnetWorld.ProductService.HttpApi.Host.Controllers;
 
 [Route("api/product")]
 [ApiController]
-[Authorize]
 public class ProductController : ControllerBase
 {
     private readonly IProductService _productService;
@@ -53,6 +52,7 @@ public class ProductController : ControllerBase
     }
 
     [HttpPost]
+    [Authorize(Roles = "ADMIN")]
     public async Task<ResponseDto> Create([FromForm] CreateProductDto createProductDto)
     {
         try
@@ -73,6 +73,7 @@ public class ProductController : ControllerBase
 
     [HttpDelete]
     [Route("deleteProduct/{id}")]
+    [Authorize(Roles = "ADMIN")]
     public async Task<ResponseDto> Delete(Guid id)
     {
         try
@@ -88,6 +89,7 @@ public class ProductController : ControllerBase
 
     }
     [HttpPut]
+    [Authorize(Roles = "ADMIN")]
     public async Task<ResponseDto> Update([FromForm] UpdateProductDto updateProductDto)
     {
         try
