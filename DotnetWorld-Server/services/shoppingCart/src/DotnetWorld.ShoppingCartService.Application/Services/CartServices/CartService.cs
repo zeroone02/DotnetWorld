@@ -36,7 +36,7 @@ public class CartService : ICartService
             .FirstOrDefaultAsync(cart => cart.UserId == cartDto.UserCart.UserId);
         if (userCart == null)
         {
-            UserCart newUserCart = ObjectMapper.Map<UserCart>(cartDto.UserCart);
+            UserCart newUserCart = ObjectMapper.Map<UserCartDto, UserCart>(cartDto.UserCart);
 
             _db.UserCarts.Add(newUserCart);
 
@@ -44,7 +44,7 @@ public class CartService : ICartService
 
             cartDto.CartDetails.First().UserCartId = newUserCart.Id;
 
-            _db.CartDetails.Add(ObjectMapper.Map<CartDetail>(cartDto.CartDetails.First()));
+            _db.CartDetails.Add(ObjectMapper.Map<CartDetailDto,CartDetail>(cartDto.CartDetails.First()));
             await _unitOfWork.SaveChangesAsync();
         }
         else
@@ -56,7 +56,8 @@ public class CartService : ICartService
             if (cartDetail == null)
             {
                 cartDto.CartDetails.First().UserCartId = userCart.Id;
-                _db.CartDetails.Add(ObjectMapper.Map<CartDetail>(cartDto.CartDetails.First()));
+                //_db.CartDetails.Add(ObjectMapper.Map<CartDetail>(cartDto.CartDetails.First()));
+                _db.CartDetails.Add(ObjectMapper.Map<CartDetailDto, CartDetail>(cartDto.CartDetails.First()));
                 await _unitOfWork.SaveChangesAsync();
             }
             else
@@ -65,7 +66,7 @@ public class CartService : ICartService
                 cartDto.CartDetails.First().UserCartId = cartDetail.UserCartId;
                 cartDto.CartDetails.First().Id = cartDetail.Id;
 
-                _db.CartDetails.Update(ObjectMapper.Map<CartDetail>(cartDto.CartDetails.First()));
+                _db.CartDetails.Update(ObjectMapper.Map<CartDetailDto, CartDetail>(cartDto.CartDetails.First()));
                 await _unitOfWork.SaveChangesAsync();
             }
 
@@ -76,10 +77,10 @@ public class CartService : ICartService
     {
         CartDto cartDto = new CartDto()
         {
-            UserCart = ObjectMapper.Map<UserCartDto>(_db.UserCarts.First(cart => cart.UserId == userId)),
+            UserCart = ObjectMapper.Map<UserCart, UserCartDto>(_db.UserCarts.First(cart => cart.UserId == userId)),
         };
 
-        cartDto.CartDetails = ObjectMapper.Map<IEnumerable<CartDetailDto>>(_db.CartDetails
+        cartDto.CartDetails = ObjectMapper.Map<IEnumerable<CartDetail>, IEnumerable<CartDetailDto>>(_db.CartDetails
                 .Where(cartDetail => cartDetail.UserCartId == cartDto.UserCart.Id));
 
         IEnumerable<ProductDto> productDtos = await _productService.GetProducts();
@@ -95,10 +96,10 @@ public class CartService : ICartService
 
         CartDto newCart = new()
         {
-            UserCart = ObjectMapper.Map<UserCartDto>(_db.UserCarts.First(u => u.UserId == userId))
+            UserCart = ObjectMapper.Map<UserCart,UserCartDto>(_db.UserCarts.First(u => u.UserId == userId))
         };
 
-        newCart.CartDetails = ObjectMapper.Map<IEnumerable<CartDetailDto>>(_db.CartDetails
+        newCart.CartDetails = ObjectMapper.Map<IEnumerable<CartDetail>, IEnumerable<CartDetailDto>>(_db.CartDetails
                .Where(cartdetail => cartdetail.UserCartId == newCart.UserCart.Id));
         foreach (var newCartDetail in newCart.CartDetails)
         {

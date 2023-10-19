@@ -18,6 +18,7 @@ public class CouponController : ControllerBase
         _response = new ResponseDto();
     }
     [HttpGet("list")]
+    [Authorize(Roles = "ADMIN")]
     public async Task<ResponseDto> GetList()
     {
         try
@@ -66,6 +67,7 @@ public class CouponController : ControllerBase
         return _response;
     }
     [HttpPost]
+    [Authorize(Roles = "ADMIN")]
     public async Task<ResponseDto> Create([FromBody] CreateCouponDto couponDto)
     {
         try
@@ -82,6 +84,7 @@ public class CouponController : ControllerBase
     }
     [HttpDelete]
     [Route("deleteCoupon/{id}")]
+    [Authorize(Roles = "ADMIN")]
     public async Task<ResponseDto> Delete(Guid id)
     {
         try
@@ -97,6 +100,7 @@ public class CouponController : ControllerBase
     }
 
     [HttpPut]
+    [Authorize(Roles = "ADMIN")]
     public async Task<ResponseDto> Update([FromBody] UpdateCouponDto couponDto)
     {
         try
