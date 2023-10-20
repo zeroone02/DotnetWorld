@@ -27,7 +27,7 @@ public class HttpClientService : IHttpClientService
 	{
 		try
 		{
-			HttpClient client = _httpClientFactory.CreateClient("eShop");
+			HttpClient client = _httpClientFactory.CreateClient("DotnetWorld");
 			HttpRequestMessage message = new();
 			if (requestDto.ContentType == ContentType.MultipartFormData)
 			{
