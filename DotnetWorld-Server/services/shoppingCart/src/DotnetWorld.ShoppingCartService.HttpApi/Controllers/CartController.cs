@@ -10,7 +10,7 @@ public class CartController : ControllerBase
 {
     private readonly ResponseDto _response;
     private readonly ICartService _cartService;
-    public CartController(ResponseDto response, ICartService cartService)
+    public CartController(ICartService cartService)
     {
         _response = new ResponseDto();
         _cartService = cartService;

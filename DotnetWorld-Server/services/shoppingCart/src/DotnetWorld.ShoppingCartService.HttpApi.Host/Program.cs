@@ -82,6 +82,7 @@ public class Program
 
     private static void ConfigureApplicationServices(IServiceCollection services)
     {
+        services.AddTransient<BackendApiAuthenticationHttpClientHandler>();
         services.AddHttpContextAccessor();
         services.AddTransient<ICartService, CartService>();
         services.AddTransient<ICouponService, CouponService>();
