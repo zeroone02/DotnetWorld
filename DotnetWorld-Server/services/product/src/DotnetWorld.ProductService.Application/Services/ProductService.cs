@@ -33,7 +33,6 @@ public class ProductService :
             string fileName = product.Id + Path.GetExtension(input.Image.FileName);
             string filePath = @"wwwroot\ProductImages\" + fileName;
 
-            //Я добавил условие if, чтобы удалить любое изображение с таким же именем, если оно существует в папке, путем любого изменения
             var directoryLocation = Path.Combine(Directory.GetCurrentDirectory(), filePath);
             FileInfo file = new FileInfo(directoryLocation);
             if (file.Exists)
