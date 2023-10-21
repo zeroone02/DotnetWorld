@@ -1,12 +1,12 @@
+using AutoMapper;
 using DotnetWorld.DDD;
+using DotnetWorld.ShoppingCartService.Application;
+using DotnetWorld.ShoppingCartService.Application.Contracts;
+using DotnetWorld.ShoppingCartService.Domain;
 using DotnetWorld.ShoppingCartService.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
-using DotnetWorld.ShoppingCartService.Domain;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using DotnetWorld.ShoppingCartService.Application.Contracts;
-using DotnetWorld.ShoppingCartService.Application;
-using AutoMapper;
 
 public class Program
 {
@@ -18,6 +18,16 @@ public class Program
         {
             options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
         });
+
+        builder.Services
+            .AddHttpClient("Product", u => u.BaseAddress =
+        new Uri(builder.Configuration["ServiceUrls:ProductAPI"]))
+             .AddHttpMessageHandler<BackendApiAuthenticationHttpClientHandler>();
+
+        builder.Services
+            .AddHttpClient("Coupon", u => u.BaseAddress =
+        new Uri(builder.Configuration["ServiceUrls:CouponAPI"]))
+             .AddHttpMessageHandler<BackendApiAuthenticationHttpClientHandler>();
 
         ConfigureServices(builder.Services);
         builder.AddAppAuthetication();
@@ -40,7 +50,6 @@ public class Program
     }
     private static void ConfigureServices(IServiceCollection services)
     {
-        ConfigureEntityFrameworkCore(services);
         ConfigureApplicationServices(services);
 
         services.AddControllers();
@@ -73,8 +82,13 @@ public class Program
 
     private static void ConfigureApplicationServices(IServiceCollection services)
     {
+        services.AddTransient<BackendApiAuthenticationHttpClientHandler>();
+        services.AddHttpContextAccessor();
         services.AddTransient<ICartService, CartService>();
+        services.AddTransient<ICouponService, CouponService>();
+        services.AddTransient<IProductService, ProductService>();
         services.AddTransient<UnitOfWork>();
+
 
         var mapperConfig = new MapperConfiguration(mc =>
         {
@@ -83,9 +97,7 @@ public class Program
 
         IMapper mapper = mapperConfig.CreateMapper();
         services.AddSingleton(mapper);
+
     }
-    private static void ConfigureEntityFrameworkCore(IServiceCollection services)
-    {
-        services.AddTransient<IRepository<UserCart, Guid>, Repository<UserCart, Guid>>();
-    }
+
 }

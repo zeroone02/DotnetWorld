@@ -1,10 +1,8 @@
 ﻿using DotnetWorld.DDD;
 using DotnetWorld.Web.Application.Contracts;
-using DotnetWorld.Web.Domain;
+using DotnetWorld.WebService.Application.Contracts;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using System.Collections.Generic;
-using static System.Net.WebRequestMethods;
 
 namespace DotnetWorld.Web.Controllers;
 public class ProductController : Controller
@@ -88,7 +86,6 @@ public class ProductController : Controller
 
         return View(productDto);
     }
-    ///Добавить imageUrl во view
     public async Task<IActionResult> ProductEdit(Guid id)
     {
         ResponseDto? response = await _productService.GetProductByIdAsync(id);

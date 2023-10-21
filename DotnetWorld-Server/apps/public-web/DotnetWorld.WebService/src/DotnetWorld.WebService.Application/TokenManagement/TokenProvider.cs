@@ -4,9 +4,6 @@ using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json.Linq;
 
 namespace DotnetWorld.WebService.Application;
-/// <summary>
-/// 
-/// </summary>
 public class TokenProvider : ITokenProvider
 {
     private readonly IHttpContextAccessor _contextAccessor;
@@ -25,7 +22,14 @@ public class TokenProvider : ITokenProvider
     {
         string? token = null;
         bool? hasToken = _contextAccessor.HttpContext?.Request.Cookies.TryGetValue(SD.TokenCookie, out token);
-        return hasToken is true ? token : null;
+        if (hasToken == true)
+        {
+            return token;
+        }
+        else
+        {
+            return null;
+        }
     }
 
     public void SetToken(string token)

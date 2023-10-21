@@ -17,8 +17,7 @@ public class DotnetWorldApplicationObjectMapper : Profile
         CreateMap<Product, CreateProductDto>().ReverseMap()
             .Ignore(x => x.Id);
 
-        CreateMap<Product, UpdateProductDto>().ReverseMap()
-            .Ignore(x => x.Id);
+        CreateMap<Product, UpdateProductDto>().ReverseMap();
     }
    
 }

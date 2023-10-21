@@ -1,5 +1,5 @@
 ﻿using DotnetWorld.DDD;
-using DotnetWorld.Web.Domain;
+using DotnetWorld.WebService.Application.Contracts;
 
 namespace DotnetWorld.Web.Application.Contracts;
 public interface IProductService
