@@ -107,18 +107,20 @@ public class ProductService :
     public async Task<ProductDto> UpdateProductAsync(UpdateProductDto input, string inputBaseUrl)
     {
         Product product = ObjectMapper.Map<UpdateProductDto, Product>(input);
-
+        if (!string.IsNullOrEmpty(product.ImageLocalPath))
+        {
+            var oldFilePathDirectory = Path.Combine(Directory.GetCurrentDirectory(), product.ImageLocalPath);
+            FileInfo file = new FileInfo(oldFilePathDirectory);
+            if (file.Exists)
+            {
+                file.Delete();
+            }
+            product.SetImageUrl(null);
+            product.SetImageLocalPath(null);
+        }
         if (input.Image != null)
         {
-            if (!string.IsNullOrEmpty(product.ImageLocalPath))
-            {
-                var oldFilePathDirectory = Path.Combine(Directory.GetCurrentDirectory(), product.ImageLocalPath);
-                FileInfo file = new FileInfo(oldFilePathDirectory);
-                if (file.Exists)
-                {
-                    file.Delete();
-                }
-            }
+          
             string fileName = product.Id + Path.GetExtension(input.Image.FileName);
             string filePath = @"wwwroot\ProductImages\" + fileName;
             var filePathDirectory = Path.Combine(Directory.GetCurrentDirectory(), filePath);
@@ -127,12 +129,13 @@ public class ProductService :
                 input.Image.CopyTo(fileStream);
             }
             product.SetImageUrl(inputBaseUrl + "/ProductImages/" + fileName)
-                   .SetImageLocalPath(filePath);
-
-            await _repository.UpdateAsync(product);
-            await _unitOfWork.SaveChangesAsync();
-            
+                   .SetImageLocalPath(filePath);   
         }
+
+
+        await _repository.UpdateAsync(product);
+        await _unitOfWork.SaveChangesAsync();
+
         return ObjectMapper.Map<Product, ProductDto>(product);
     }
 }
