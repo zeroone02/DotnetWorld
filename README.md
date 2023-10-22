@@ -13,7 +13,8 @@
 – Cookie аутентификация
 
 – PostgreSQL, EFCore
-Home page
+
+Главная страница
 
 ![image](https://github.com/zeroone02/DotnetWorld/assets/113613557/515b44b2-3933-490a-bcef-a01ec61bc22a)
 
